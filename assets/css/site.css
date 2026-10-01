@@ -158,9 +158,9 @@ footer a { color: var(--ww-text-muted); }
 footer a:hover { color: var(--ww-text); }
 
 /* Legal notice and privacy policy */
-.legal .wrap { max-width: 760px; padding-top: var(--ww-space-10); padding-bottom: var(--ww-space-12); }
+.legal .wrap { padding-top: var(--ww-space-10); padding-bottom: var(--ww-space-12); }
 .legal h1 { font-size: clamp(var(--ww-size-3xl), 7vw, var(--ww-size-4xl)); margin-top: var(--ww-space-10); overflow-wrap: break-word; hyphens: auto; }
 .legal h1:first-of-type { margin-top: var(--ww-space-6); }
 .legal h2 { font-size: var(--ww-size-xl); margin-top: var(--ww-space-8); }
-.legal p, .legal address { margin-top: var(--ww-space-3); color: var(--ww-text-muted); font-style: normal; }
+.legal p, .legal address { margin-top: var(--ww-space-3); color: var(--ww-text-muted); font-style: normal; max-width: 80ch; }
 .legal h1 + p, .legal address { color: var(--ww-text); }
