@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>wickwatch – selbst gehostetes Dashboard für Trading-Bots</title>
+  <meta name="description" content="Trading-Bots überwachen und steuern: Instanzen, Positionen, Deals und die Limits von Prop-Firm-Challenges in einem selbst gehosteten Dashboard. Open Source unter AGPL-3.0.">
+  <link rel="canonical" href="https://wickwatch.github.io/de/">
+  <link rel="alternate" hreflang="de" href="https://wickwatch.github.io/de/">
+  <link rel="alternate" hreflang="en" href="https://wickwatch.github.io/">
+  <link rel="alternate" hreflang="x-default" href="https://wickwatch.github.io/">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0F1318" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F7F6F2" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="wickwatch">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:url" content="https://wickwatch.github.io/de/">
+  <meta property="og:title" content="wickwatch – selbst gehostetes Dashboard für Trading-Bots">
+  <meta property="og:description" content="Trading-Bots überwachen und steuern: Instanzen, Positionen, Deals und die Limits von Prop-Firm-Challenges in einem selbst gehosteten Dashboard. Open Source unter AGPL-3.0.">
+  <meta property="og:image" content="https://wickwatch.github.io/assets/img/social-preview.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>
+    // Apply a theme chosen earlier before the first paint; without one the system preference decides.
+    try { const t = localStorage.getItem("ww-site-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch {}
+  </script>
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="../" aria-label="wickwatch Startseite">
+        <img class="only-dark" src="../assets/img/wickwatch-logo-horizontal-dark.svg" width="130" height="28" alt="wickwatch">
+        <img class="only-light" src="../assets/img/wickwatch-logo-horizontal-light.svg" width="130" height="28" alt="wickwatch">
+      </a>
+      <nav aria-label="Abschnitte">
+        <a href="#features">Funktionen</a>
+        <a href="#quick-start">Schnellstart</a>
+        <a href="#support">Unterstützen</a>
+        <a href="https://github.com/wickwatch/wickwatch">GitHub</a>
+      </nav>
+      <div class="tools">
+        <a class="chip" href="../" hreflang="en" lang="en">English</a>
+        <button class="chip" type="button" data-theme-toggle data-label-dark="Zum dunklen Modus wechseln" data-label-light="Zum hellen Modus wechseln" aria-label="Zum hellen Modus wechseln">
+          <span class="only-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></span><span class="only-light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.5A8 8 0 1 1 9.5 4.5a6.5 6.5 0 0 0 10 10z"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="hero">
+      <div class="wrap">
+        <h1>Behalte deine <em>Trading-Bots</em> im Blick</h1>
+        <p class="lead">wickwatch ist ein selbst gehostetes Dashboard für Trading-Bots: Sieh, was wo mit welchen Parametern läuft, starte und stoppe Instanzen, verfolge Positionen und Deals live und behalte die Limits deiner Prop-Firm-Challenge im Blick.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#quick-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5v15l11.5-7.5z"/></svg>Schnellstart</a>
+          <a class="btn btn-ghost" href="https://github.com/wickwatch/wickwatch">Quellcode auf GitHub<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 4.5h6v6"/><path d="M19.5 4.5l-8 8"/><path d="M17 13.5v5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h5"/></svg></a>
+        </div>
+        <ul class="tags" aria-label="Auf einen Blick">
+          <li>selbst gehostet</li>
+          <li>Open Source · AGPL-3.0</li>
+          <li>English · Deutsch</li>
+          <li>cTrader CLI · Docker</li>
+        </ul>
+        <div class="shot"><img class="only-dark" src="../assets/shots/overview-dark-de.webp" width="2000" height="1250" alt="wickwatch-Übersicht: drei Konten mit Balance, Equity und Tages-P&L, eine Meldung zu einem Bot, dessen Login fehlgeschlagen ist, und die Tabelle der Bot-Instanzen mit Status, Laufzeit und letzter Log-Zeile." fetchpriority="high"><img class="only-light" src="../assets/shots/overview-light-de.webp" width="2000" height="1250" alt="wickwatch-Übersicht: drei Konten mit Balance, Equity und Tages-P&L, eine Meldung zu einem Bot, dessen Login fehlgeschlagen ist, und die Tabelle der Bot-Instanzen mit Status, Laufzeit und letzter Log-Zeile." loading="lazy"></div>
+      </div>
+    </div>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Funktionen</p>
+          <h2>Deine Bots auf einem Bildschirm</h2>
+          <p>wickwatch überwacht und steuert, deine Strategien bleiben deine. Es handelt nicht selbst und verspricht keine Gewinne.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6.5h10M9 12h10M9 17.5h10"/><path d="M5 6.5h.01M5 12h.01M5 17.5h.01"/></svg>Übersicht</h3><p>Konten mit Balance, Equity, Tages-P&L, offenen Positionen und Pending Orders. Alle Instanzen mit Status, Laufzeit und letzter Log-Zeile. Meldungen bei gestoppten, abgestürzten oder getrennten Bots, Broker-Fehlern und Challenge-Limits.</p></div>
+          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5v15l11.5-7.5z"/></svg>Instanzen</h3><p>Starten, stoppen, neu starten. Bots aus einem hochgeladenen Algo anlegen, mit einem Formular aus dessen Parametern; Parameterdateien laden oder herunterladen. Jedes Speichern ist eine Version, die sich wiederherstellen lässt.</p></div>
+          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7l4.5 4.5L5 16"/><path d="M12 17h7"/></svg>Live-Log</h3><p>Das Log jedes Bots live verfolgen, in einer größeren Ansicht durchsuchen und die letzten 24 Stunden, 7 Tage oder alles als Textdatei herunterladen.</p></div>
+          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>Notstopp</h3><p>Ein Knopf pro Konto stoppt dessen Bots, storniert seine Orders und schließt seine Positionen. Immer mit Bestätigung, immer im Audit-Log.</p></div>
+          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Prop-Challenges</h3><p>Profit-Ziel, Tagesverlust, Drawdown, Handelstage und Laufzeit pro Konto, mit Vorlagen für FTMO und The Trading Pit. Ein optionaler Schutz löst den Notstopp aus, bevor ein Limit ausgeschöpft ist.</p></div>
+          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15.5" r="4"/><path d="M11 12.5l8.5-8.5"/><path d="M16.5 7l2.5 2.5"/><path d="M14 9.5l2 2"/></svg>Von Haus aus sicher</h3><p>Eingebauter Login mit optionaler Zwei-Faktor-Anmeldung und Nutzern, die nur lesen dürfen. Broker-Zugangsdaten verschlüsselt gespeichert. Docker nur über einen Socket-Proxy.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="showcase-instance">
+      <div class="wrap showcase">
+        <div class="feature">
+          <div class="text">
+            <h2 id="showcase-instance">Jede Instanz im Detail</h2>
+            <p>Kennzahlen, realisierte P&L-Kurve und Live-Log nebeneinander; darunter offene Positionen, Pending Orders und die Trade-Historie mit Risiko in % und R pro Trade.</p>
+          </div>
+          <div class="shot"><img class="only-dark" src="../assets/shots/instance-dark-de.webp" width="2000" height="1250" alt="Instanzseite des Bots alpha-ger40-a: Kennzahlen für 30 Tage wie 39 Trades, 64 % Trefferquote und ein Netto-Ergebnis von +2.576,25, die realisierte P&L-Kurve und das Live-Log." loading="lazy"><img class="only-light" src="../assets/shots/instance-light-de.webp" width="2000" height="1250" alt="Instanzseite des Bots alpha-ger40-a: Kennzahlen für 30 Tage wie 39 Trades, 64 % Trefferquote und ein Netto-Ergebnis von +2.576,25, die realisierte P&L-Kurve und das Live-Log." loading="lazy"></div>
+        </div>
+        <div class="feature flip">
+          <div class="text">
+            <h2>Challenge-Limits im Blick</h2>
+            <p>Die Kontoseite zeigt, wie weit das Profit-Ziel entfernt ist und wie viel vom Tages- und Gesamtverlust schon verbraucht ist. Werte, die nicht genau gemessen werden konnten, sind als Schätzung markiert.</p>
+            <ul>
+              <li>Tagesverlust mit Reset-Zeit und Zeitzone, auf Balance oder Equity</li>
+              <li>Max-Drawdown: statisch, nachgezogen oder nachgezogen auf die Balance zum Tagesschluss</li>
+              <li>Mindestzahl an Handelstagen und Laufzeit</li>
+            </ul>
+          </div>
+          <div class="shot"><img class="only-dark" src="../assets/shots/account-dark-de.webp" width="2000" height="1250" alt="Kontoseite einer Demo-Prop-Challenge: Balance und Equity, die Challenge mit Fortschrittsbalken für Profit-Ziel, Tagesverlust, Max-Drawdown, Handelstage und Laufzeit sowie die Instanzen des Kontos." loading="lazy"><img class="only-light" src="../assets/shots/account-light-de.webp" width="2000" height="1250" alt="Kontoseite einer Demo-Prop-Challenge: Balance und Equity, die Challenge mit Fortschrittsbalken für Profit-Ziel, Tagesverlust, Max-Drawdown, Handelstage und Laufzeit sowie die Instanzen des Kontos." loading="lazy"></div>
+        </div>
+        <div class="phone">
+          <div class="text">
+            <h2>Auch auf dem Handy</h2>
+            <p class="note">Das Dashboard funktioniert auf dem Handy, im dunklen und hellen Modus, auf Deutsch und Englisch. Der Notstopp bekommt eine große Tippfläche.</p>
+          </div>
+          <div class="shot"><img class="only-dark" src="../assets/shots/phone-dark-de.webp" width="780" height="1688" alt="wickwatch auf dem Handy: eine Meldung und die erste Kontokarte mit Balance, Equity, Tages-P&L und dem Notstopp-Knopf." loading="lazy"><img class="only-light" src="../assets/shots/phone-light-de.webp" width="780" height="1688" alt="wickwatch auf dem Handy: eine Meldung und die erste Kontokarte mit Balance, Equity, Tages-P&L und dem Notstopp-Knopf." loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">So funktioniert es</p>
+          <h2>Neutraler Kern, austauschbare Adapter</h2>
+          <p>wickwatch kennt weder deine Strategie noch deinen Broker. Adapter verbinden es mit dem Ort, an dem die Bots laufen, mit dem Broker und mit dem Parameterformat. Die ersten betreiben cTrader-Bots in Docker-Containern über die cTrader CLI; ein Demo-Adapter mit Beispieldaten ist eingebaut.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Laufzeit: Docker</h3><p>Findet markierte Container, startet und stoppt sie und streamt ihre Logs. Docker wird nur über einen docker-socket-proxy erreicht.</p></div>
+          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Broker: cTrader CLI</h3><p>Konten, Kontostände, Positionen, Orders, Deals und Algo-Metadaten, eine Sitzung pro Konto.</p></div>
+          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></svg>Parameter: .cbotset</h3><p>Liest und schreibt cTrader-Parameterdateien, damit vorhandene Parametersätze weiter funktionieren.</p></div>
+        </div>
+        <p class="note">Ein anderer Broker oder eine andere Plattform? Die Adapter-Verträge stehen in <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/ADAPTERS.md">docs/ADAPTERS.md</a> (Englisch).</p>
+      </div>
+    </section>
+
+    <section id="quick-start">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Schnellstart</p>
+          <h2>In einer Minute ausprobieren</h2>
+          <p>Das Image startet mit dem Demo-Adapter: Beispielkonten, -instanzen, -positionen und -logs. So kannst du dich ohne Broker und ohne Bots umsehen.</p>
+        </div>
+        <div class="code">
+          <pre><code id="quick-start-command">docker run --rm -p 3000:3000 \
+  -e MASTER_KEY="$(openssl rand -base64 32)" \
+  -v wickwatch-data:/app/data \
+  ghcr.io/wickwatch/wickwatch:0.1.2</code></pre>
+          <button class="chip copy" type="button" data-copy="quick-start-command" data-label-done="Kopiert" aria-label="Befehl kopieren"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></svg></button>
+          <span class="copied" role="status" data-copy-status></span>
+        </div>
+        <ol class="steps">
+          <li>Den Setup-Token aus der Log-Zeile <code>No admin yet. Open /setup and enter the setup token: …</code> kopieren.</li>
+          <li><code>http://localhost:3000</code> öffnen und Token, Benutzernamen und Passwort eingeben.</li>
+          <li>Die Zwei-Faktor-Anmeldung gleich oder später unter Profil einrichten. Die Übersicht mit Demo-Daten öffnet sich.</li>
+        </ol>
+        <p class="note">Echte Bots auf einem Server betreiben: die <a href="https://github.com/wickwatch/wickwatch/blob/main/deploy/INSTALL.md">Schritt-für-Schritt-Installation</a>; alle Einstellungen in der <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/CONFIGURATION.md">Konfigurationsreferenz</a> (beides Englisch). wickwatch 0.1.2 ist in früher Entwicklung und läuft auf Demo- und Prop-Challenge-Konten; was als Nächstes kommt, steht in der <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/ROADMAP.md">Roadmap</a>.</p>
+      </div>
+    </section>
+
+    <section id="support" class="support">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Unterstützen</p>
+          <h2>Ein Hobbyprojekt, frei und offen</h2>
+          <p>wickwatch entsteht in der Freizeit und kostet nichts. Wenn es dir hilft, kannst du es über Ko-fi oder GitHub Sponsors unterstützen. Fehlermeldungen, Ideen und Pull Requests helfen genauso.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://ko-fi.com/mmohrx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19.5s-7.5-4.4-7.5-9.7A4.3 4.3 0 0 1 12 7.1a4.3 4.3 0 0 1 7.5 2.7c0 5.3-7.5 9.7-7.5 9.7z"/></svg>Auf Ko-fi unterstützen</a>
+          <a class="btn btn-ghost" href="https://github.com/sponsors/mmohrx">GitHub Sponsors<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 4.5h6v6"/><path d="M19.5 4.5l-8 8"/><path d="M17 13.5v5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h5"/></svg></a>
+          <a class="btn btn-ghost" href="https://github.com/wickwatch/wickwatch/issues">Fehler melden<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 4.5h6v6"/><path d="M19.5 4.5l-8 8"/><path d="M17 13.5v5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h5"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>wickwatch ist ein Werkzeug zum Überwachen und Steuern, keine Anlageberatung. Trading ist mit Risiken verbunden; für deine Bots und Konten bist du selbst verantwortlich. cTrader ist eine Marke ihres jeweiligen Inhabers; wickwatch steht in keiner Verbindung zu Spotware und wird von Spotware nicht unterstützt.</p>
+      <nav aria-label="Links">
+        <a href="https://github.com/wickwatch/wickwatch">GitHub</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/CHANGELOG.md">Changelog</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/USER-GUIDE.md">Benutzerhandbuch</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/SECURITY.md">Sicherheit</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/LICENSE">Lizenz (AGPL-3.0)</a>
+        <a href="https://ko-fi.com/mmohrx">Ko-fi</a>
+      </nav>
+      <p>Diese Seite setzt keine Cookies und verwendet kein Tracking. Die Schriften werden von dieser Seite selbst geladen.</p>
+    </div>
+  </footer>
+</body>
+</html>

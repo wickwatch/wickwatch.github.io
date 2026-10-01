@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{t:meta.title}}</title>
+  <meta name="description" content="{{t:meta.description}}">
+  <link rel="canonical" href="{{url}}">
+  <link rel="alternate" hreflang="{{lang}}" href="{{url}}">
+  <link rel="alternate" hreflang="{{alternateLang}}" href="{{alternate}}">
+  <link rel="alternate" hreflang="x-default" href="{{siteUrl}}/">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0F1318" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F7F6F2" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="wickwatch">
+  <meta property="og:locale" content="{{locale}}">
+  <meta property="og:url" content="{{url}}">
+  <meta property="og:title" content="{{t:meta.title}}">
+  <meta property="og:description" content="{{t:meta.description}}">
+  <meta property="og:image" content="{{siteUrl}}/assets/img/social-preview.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="{{root}}assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{{root}}assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="{{root}}assets/img/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="{{root}}assets/img/apple-touch-icon.png">
+  <link rel="preload" href="{{root}}assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{root}}assets/css/tokens.css">
+  <link rel="stylesheet" href="{{root}}assets/css/site.css">
+  <script>
+    // Apply a theme chosen earlier before the first paint; without one the system preference decides.
+    try { const t = localStorage.getItem("ww-site-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch {}
+  </script>
+  <script src="{{root}}assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">{{t:nav.skip}}</a>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="{{root}}" aria-label="{{t:nav.home}}">
+        <img class="only-dark" src="{{root}}assets/img/wickwatch-logo-horizontal-dark.svg" width="130" height="28" alt="wickwatch">
+        <img class="only-light" src="{{root}}assets/img/wickwatch-logo-horizontal-light.svg" width="130" height="28" alt="wickwatch">
+      </a>
+      <nav aria-label="{{t:nav.label}}">
+        <a href="#features">{{t:nav.features}}</a>
+        <a href="#quick-start">{{t:nav.quickStart}}</a>
+        <a href="#support">{{t:nav.support}}</a>
+        <a href="{{repo}}">GitHub</a>
+      </nav>
+      <div class="tools">
+        <a class="chip" href="{{otherRoot}}" hreflang="{{alternateLang}}" lang="{{alternateLang}}">{{t:nav.otherLanguage}}</a>
+        <button class="chip" type="button" data-theme-toggle data-label-dark="{{t:theme.toDark}}" data-label-light="{{t:theme.toLight}}" aria-label="{{t:theme.toLight}}">
+          <span class="only-dark">{{icon:sun}}</span><span class="only-light">{{icon:moon}}</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="hero">
+      <div class="wrap">
+        <h1>{{t:hero.title}}</h1>
+        <p class="lead">{{t:hero.lead}}</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#quick-start">{{icon:play}}{{t:hero.start}}</a>
+          <a class="btn btn-ghost" href="{{repo}}">{{t:hero.source}}{{icon:external}}</a>
+        </div>
+        <ul class="tags" aria-label="{{t:hero.tagsLabel}}">
+          <li>{{t:hero.tag1}}</li>
+          <li>{{t:hero.tag2}}</li>
+          <li>{{t:hero.tag3}}</li>
+          <li>{{t:hero.tag4}}</li>
+        </ul>
+        <div class="shot">{{shot:overview:hero.alt:eager}}</div>
+      </div>
+    </div>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">{{t:features.eyebrow}}</p>
+          <h2>{{t:features.title}}</h2>
+          <p>{{t:features.intro}}</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>{{icon:list}}{{t:features.overview.title}}</h3><p>{{t:features.overview.text}}</p></div>
+          <div class="card"><h3>{{icon:play}}{{t:features.instances.title}}</h3><p>{{t:features.instances.text}}</p></div>
+          <div class="card"><h3>{{icon:terminal}}{{t:features.log.title}}</h3><p>{{t:features.log.text}}</p></div>
+          <div class="card"><h3>{{icon:stop}}{{t:features.stop.title}}</h3><p>{{t:features.stop.text}}</p></div>
+          <div class="card"><h3>{{icon:check}}{{t:features.challenges.title}}</h3><p>{{t:features.challenges.text}}</p></div>
+          <div class="card"><h3>{{icon:key}}{{t:features.security.title}}</h3><p>{{t:features.security.text}}</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="showcase-instance">
+      <div class="wrap showcase">
+        <div class="feature">
+          <div class="text">
+            <h2 id="showcase-instance">{{t:showcase.instance.title}}</h2>
+            <p>{{t:showcase.instance.text}}</p>
+          </div>
+          <div class="shot">{{shot:instance:showcase.instance.alt}}</div>
+        </div>
+        <div class="feature flip">
+          <div class="text">
+            <h2>{{t:showcase.account.title}}</h2>
+            <p>{{t:showcase.account.text}}</p>
+            <ul>
+              <li>{{t:showcase.account.item1}}</li>
+              <li>{{t:showcase.account.item2}}</li>
+              <li>{{t:showcase.account.item3}}</li>
+            </ul>
+          </div>
+          <div class="shot">{{shot:account:showcase.account.alt}}</div>
+        </div>
+        <div class="phone">
+          <div class="text">
+            <h2>{{t:showcase.phone.title}}</h2>
+            <p class="note">{{t:showcase.phone.text}}</p>
+          </div>
+          <div class="shot">{{shot:phone:showcase.phone.alt}}</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">{{t:how.eyebrow}}</p>
+          <h2>{{t:how.title}}</h2>
+          <p>{{t:how.intro}}</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>{{icon:monitor}}{{t:how.runtime.title}}</h3><p>{{t:how.runtime.text}}</p></div>
+          <div class="card"><h3>{{icon:clock}}{{t:how.broker.title}}</h3><p>{{t:how.broker.text}}</p></div>
+          <div class="card"><h3>{{icon:duplicate}}{{t:how.config.title}}</h3><p>{{t:how.config.text}}</p></div>
+        </div>
+        <p class="note">{{t:how.note}}</p>
+      </div>
+    </section>
+
+    <section id="quick-start">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">{{t:start.eyebrow}}</p>
+          <h2>{{t:start.title}}</h2>
+          <p>{{t:start.intro}}</p>
+        </div>
+        <div class="code">
+          <pre><code id="quick-start-command">docker run --rm -p 3000:3000 \
+  -e MASTER_KEY="$(openssl rand -base64 32)" \
+  -v wickwatch-data:/app/data \
+  ghcr.io/wickwatch/wickwatch:{{version}}</code></pre>
+          <button class="chip copy" type="button" data-copy="quick-start-command" data-label-done="{{t:start.copied}}" aria-label="{{t:start.copy}}">{{icon:duplicate}}</button>
+          <span class="copied" role="status" data-copy-status></span>
+        </div>
+        <ol class="steps">
+          <li>{{t:start.step1}}</li>
+          <li>{{t:start.step2}}</li>
+          <li>{{t:start.step3}}</li>
+        </ol>
+        <p class="note">{{t:start.note}}</p>
+      </div>
+    </section>
+
+    <section id="support" class="support">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">{{t:support.eyebrow}}</p>
+          <h2>{{t:support.title}}</h2>
+          <p>{{t:support.text}}</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://ko-fi.com/mmohrx">{{icon:heart}}{{t:support.kofi}}</a>
+          <a class="btn btn-ghost" href="https://github.com/sponsors/mmohrx">{{t:support.sponsors}}{{icon:external}}</a>
+          <a class="btn btn-ghost" href="{{repo}}/issues">{{t:support.issues}}{{icon:external}}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>{{t:footer.disclaimer}}</p>
+      <nav aria-label="{{t:footer.label}}">
+        <a href="{{repo}}">GitHub</a>
+        <a href="{{repo}}/blob/main/CHANGELOG.md">{{t:footer.changelog}}</a>
+        <a href="{{repo}}/blob/main/docs/USER-GUIDE.md">{{t:footer.guide}}</a>
+        <a href="{{repo}}/blob/main/SECURITY.md">{{t:footer.security}}</a>
+        <a href="{{repo}}/blob/main/LICENSE">{{t:footer.license}}</a>
+        <a href="https://ko-fi.com/mmohrx">Ko-fi</a>
+      </nav>
+      <p>{{t:footer.note}}</p>
+    </div>
+  </footer>
+</body>
+</html>
