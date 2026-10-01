@@ -7,6 +7,9 @@ The project page of [wickwatch](https://github.com/wickwatch/wickwatch): one sta
 - Markup: `src/page.html`. Styles: `assets/css/site.css`, built on `assets/css/tokens.css` (a copy of `design/tokens.css` from the main repo; copy it again when the tokens change).
 - Build with `node build.mjs` (Node 20+, no dependencies) and commit the generated `index.html` and `de/index.html`. The build fails on a missing string or a placeholder left in the page.
 
+## Legal notice and privacy
+`src/legal.html` builds `impressum/index.html` (German only, linked from both footers). Raise `LEGAL_DATE` in `build.mjs` when the text changes, and update the privacy part when the site starts using anything new (hosting, embeds, analytics).
+
 ## With each wickwatch release
 Raise `VERSION` in `build.mjs` (the quick start pins it) and rebuild.
 

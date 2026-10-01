@@ -89,3 +89,16 @@ for (const lang of LANGS) {
   writeFileSync(new URL(`${lang.dir}index.html`, import.meta.url), html);
   console.log(`${lang.dir}index.html`);
 }
+
+// Legal notice and privacy policy: German only, as required for a site run from Germany.
+const LEGAL_DATE = "1. Oktober 2026";
+const legal = readFileSync(new URL("src/legal.html", import.meta.url), "utf8")
+  .replace(/\{\{icon:([a-z]+)\}\}/g, (_, name) => icon(name))
+  .replace(/\{\{([a-zA-Z]+)\}\}/g, (_, key) => {
+    const values = { siteUrl: SITE_URL, repo: REPO, legalDate: LEGAL_DATE };
+    if (!(key in values)) throw new Error(`missing value ${key} (legal)`);
+    return values[key];
+  });
+mkdirSync(new URL("impressum/", import.meta.url), { recursive: true });
+writeFileSync(new URL("impressum/index.html", import.meta.url), legal);
+console.log("impressum/index.html");
