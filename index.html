@@ -119,8 +119,15 @@
         </div>
         <div class="phone">
           <div class="text">
+            <p class="eyebrow">Phone and notifications</p>
             <h2>On your phone too</h2>
-            <p class="note">The dashboard works on a phone, in dark and light mode, in English and German. The emergency stop gets a large touch target.</p>
+            <p>The same dashboard, laid out for a small screen: alerts first, accounts as cards, actions below the headings with their labels. Dark and light mode, English and German, and a large touch target for the emergency stop.</p>
+            <ul>
+              <li>Alerts to Telegram, Slack, Discord or ntfy when a bot stops, crashes or loses its connection, or a challenge limit gets close, and again when it is fine</li>
+              <li>A daily summary of your accounts at a time you choose</li>
+              <li>A heartbeat to a service like Healthchecks.io, which tells you when wickwatch itself is gone</li>
+            </ul>
+            <p class="note">Put it behind your reverse proxy with HTTPS (nginx-proxy, Traefik or any other) and keep it out of public reach, e.g. with a VPN or an IP allowlist.</p>
           </div>
           <div class="shot"><img class="only-dark" src="./assets/shots/phone-dark-en.webp" width="780" height="1688" alt="wickwatch on a phone: an alert and the first account card with balance, equity, today's P&L and the emergency stop button." loading="lazy"><img class="only-light" src="./assets/shots/phone-light-en.webp" width="780" height="1688" alt="wickwatch on a phone: an alert and the first account card with balance, equity, today's P&L and the emergency stop button." loading="lazy"></div>
         </div>

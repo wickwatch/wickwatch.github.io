@@ -9,6 +9,7 @@
   "nav.quickStart": "Quick start",
   "nav.support": "Support",
   "nav.otherLanguage": "Deutsch",
+
   "theme.toDark": "Switch to dark mode",
   "theme.toLight": "Switch to light mode",
 
@@ -48,8 +49,13 @@
   "showcase.account.item2": "Max drawdown: static, trailing, or trailing on the end-of-day balance",
   "showcase.account.item3": "Minimum trading days and duration",
   "showcase.account.alt": "Account page of a demo prop challenge: balance and equity, the challenge with progress bars for profit target, daily loss, max drawdown, trading days and duration, and the account's instances.",
+  "showcase.phone.eyebrow": "Phone and notifications",
   "showcase.phone.title": "On your phone too",
-  "showcase.phone.text": "The dashboard works on a phone, in dark and light mode, in English and German. The emergency stop gets a large touch target.",
+  "showcase.phone.text": "The same dashboard, laid out for a small screen: alerts first, accounts as cards, actions below the headings with their labels. Dark and light mode, English and German, and a large touch target for the emergency stop.",
+  "showcase.phone.item1": "Alerts to Telegram, Slack, Discord or ntfy when a bot stops, crashes or loses its connection, or a challenge limit gets close, and again when it is fine",
+  "showcase.phone.item2": "A daily summary of your accounts at a time you choose",
+  "showcase.phone.item3": "A heartbeat to a service like Healthchecks.io, which tells you when wickwatch itself is gone",
+  "showcase.phone.note": "Put it behind your reverse proxy with HTTPS (nginx-proxy, Traefik or any other) and keep it out of public reach, e.g. with a VPN or an IP allowlist.",
   "showcase.phone.alt": "wickwatch on a phone: an alert and the first account card with balance, equity, today's P&L and the emergency stop button.",
 
   "how.eyebrow": "How it works",

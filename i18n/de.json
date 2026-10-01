@@ -9,6 +9,7 @@
   "nav.quickStart": "Schnellstart",
   "nav.support": "Unterstützen",
   "nav.otherLanguage": "English",
+
   "theme.toDark": "Zum dunklen Modus wechseln",
   "theme.toLight": "Zum hellen Modus wechseln",
 
@@ -48,8 +49,13 @@
   "showcase.account.item2": "Max-Drawdown: statisch, nachgezogen oder nachgezogen auf die Balance zum Tagesschluss",
   "showcase.account.item3": "Mindestzahl an Handelstagen und Laufzeit",
   "showcase.account.alt": "Kontoseite einer Demo-Prop-Challenge: Balance und Equity, die Challenge mit Fortschrittsbalken für Profit-Ziel, Tagesverlust, Max-Drawdown, Handelstage und Laufzeit sowie die Instanzen des Kontos.",
+  "showcase.phone.eyebrow": "Handy und Benachrichtigungen",
   "showcase.phone.title": "Auch auf dem Handy",
-  "showcase.phone.text": "Das Dashboard funktioniert auf dem Handy, im dunklen und hellen Modus, auf Deutsch und Englisch. Der Notstopp bekommt eine große Tippfläche.",
+  "showcase.phone.text": "Dasselbe Dashboard, für kleine Bildschirme angeordnet: Meldungen zuerst, Konten als Karten, Aktionen unter den Überschriften und mit Beschriftung. Dunkler und heller Modus, Deutsch und Englisch, und eine große Tippfläche für den Notstopp.",
+  "showcase.phone.item1": "Meldungen an Telegram, Slack, Discord oder ntfy, wenn ein Bot stoppt, abstürzt oder die Verbindung verliert oder ein Challenge-Limit näher rückt, und wieder, wenn alles in Ordnung ist",
+  "showcase.phone.item2": "Eine tägliche Zusammenfassung deiner Konten zu einer Uhrzeit deiner Wahl",
+  "showcase.phone.item3": "Ein Heartbeat an einen Dienst wie Healthchecks.io, der dir meldet, wenn wickwatch selbst nicht mehr läuft",
+  "showcase.phone.note": "Betreibe es hinter deinem Reverse Proxy mit HTTPS (nginx-proxy, Traefik oder ein anderer) und halte es von der Öffentlichkeit fern, z. B. mit VPN oder IP-Freigabeliste.",
   "showcase.phone.alt": "wickwatch auf dem Handy: eine Meldung und die erste Kontokarte mit Balance, Equity, Tages-P&L und dem Notstopp-Knopf.",
 
   "how.eyebrow": "So funktioniert es",

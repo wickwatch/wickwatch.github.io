@@ -113,12 +113,12 @@ section + section { border-top: 1px solid var(--ww-border); }
   .feature.flip { grid-template-columns: 7fr 5fr; }
   .feature.flip .text { order: 2; }
 }
-.feature .text p { color: var(--ww-text-muted); margin-top: var(--ww-space-3); }
-.feature ul { margin: var(--ww-space-4) 0 0; padding-left: var(--ww-space-5); color: var(--ww-text-muted); font-size: var(--ww-size-md); }
-.feature li + li { margin-top: var(--ww-space-1); }
+.feature .text p, .phone .text > p:not(.eyebrow):not(.note) { color: var(--ww-text-muted); margin-top: var(--ww-space-3); }
+.feature ul, .phone ul { margin: var(--ww-space-4) 0 0; padding-left: var(--ww-space-5); color: var(--ww-text-muted); font-size: var(--ww-size-md); }
+.feature li + li, .phone li + li { margin-top: var(--ww-space-1); }
 
 .phone { display: grid; gap: var(--ww-space-6); align-items: center; }
-@media (min-width: 720px) { .phone { grid-template-columns: 1fr 280px; } }
+@media (min-width: 720px) { .phone { grid-template-columns: minmax(0, 60ch) 280px; justify-content: space-between; } }
 .phone .shot { border-radius: 28px; max-width: 280px; margin: 0 auto; }
 
 /* Quick start */
