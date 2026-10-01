@@ -123,7 +123,7 @@ section + section { border-top: 1px solid var(--ww-border); }
   .feature.flip { grid-template-columns: 7fr 5fr; }
   .feature.flip .text { order: 2; }
 }
-.feature .text p, .phone .text > p:not(.eyebrow):not(.note) { color: var(--ww-text-muted); margin-top: var(--ww-space-3); }
+.feature .text > p:not(.eyebrow), .phone .text > p:not(.eyebrow):not(.note) { color: var(--ww-text-muted); margin-top: var(--ww-space-3); }
 .feature ul, .phone ul { margin: var(--ww-space-4) 0 0; padding-left: var(--ww-space-5); color: var(--ww-text-muted); font-size: var(--ww-size-md); }
 .feature li + li, .phone li + li { margin-top: var(--ww-space-1); }
 
