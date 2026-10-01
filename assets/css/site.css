@@ -116,7 +116,9 @@ section + section { border-top: 1px solid var(--ww-border); }
 .card h3 svg { width: 22px; height: 22px; color: var(--ww-accent); flex: none; }
 .card p { color: var(--ww-text-muted); margin-top: var(--ww-space-3); font-size: var(--ww-size-md); }
 
-.showcase { display: grid; gap: var(--ww-space-8); }
+.showcase { display: grid; gap: var(--ww-space-12); }
+/* The spacing scale ends at 48 px; side-by-side screenshots need twice that to read as separate blocks. */
+@media (min-width: 960px) { .showcase { gap: calc(var(--ww-space-12) * 2); } }
 .feature { display: grid; gap: var(--ww-space-6); align-items: center; }
 @media (min-width: 960px) {
   .feature { grid-template-columns: 5fr 7fr; }
