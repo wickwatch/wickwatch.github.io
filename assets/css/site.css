@@ -68,6 +68,16 @@ p { margin: 0; }
 }
 .chip:hover { border-color: var(--ww-text-muted); }
 .chip svg { width: 18px; height: 18px; }
+/* Flags as in the dashboard header (HeaderControls.vue); the only images besides the logo that are not drawn with tokens. */
+.chip .flag { width: 22px; height: 16.5px; border-radius: 2px; box-shadow: 0 0 0 1px var(--ww-border-strong); }
+
+/* Tooltip for icon-only controls, shown at once on hover and keyboard focus (BRAND.md: no native title). */
+[data-tip] { position: relative; }
+[data-tip]:hover::after, [data-tip]:focus-visible::after {
+  content: attr(data-tip); position: absolute; top: calc(100% + 6px); right: 0; z-index: 6; white-space: nowrap;
+  padding: var(--ww-space-1) var(--ww-space-2); border: 1px solid var(--ww-border-strong); border-radius: var(--ww-radius-sm);
+  background: var(--ww-surface-raised); color: var(--ww-text); font: 400 var(--ww-size-xs) var(--ww-font-body);
+}
 
 /* Buttons */
 .btn {

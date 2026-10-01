@@ -9,8 +9,8 @@ const VERSION = "0.1.2";
 const REPO = "https://github.com/wickwatch/wickwatch";
 
 const LANGS = [
-  { code: "en", dir: "", locale: "en_GB" },
-  { code: "de", dir: "de/", locale: "de_DE" },
+  { code: "en", dir: "", locale: "en_GB", flag: "gb-us" },
+  { code: "de", dir: "de/", locale: "de_DE", flag: "de" },
 ];
 
 // Line icons from the dashboard (apps/web/src/icons.ts), plus a heart for Ko-fi in the same style.
@@ -64,6 +64,7 @@ for (const lang of LANGS) {
     alternate: `${SITE_URL}/${other.dir}`,
     alternateLang: other.code,
     otherRoot: lang.dir ? "../" : `./${other.dir}`,
+    otherFlag: other.flag,
     siteUrl: SITE_URL,
     repo: REPO,
     version: VERSION,

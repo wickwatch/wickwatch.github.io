@@ -51,8 +51,8 @@
         <a href="{{repo}}">GitHub</a>
       </nav>
       <div class="tools">
-        <a class="chip" href="{{otherRoot}}" hreflang="{{alternateLang}}" lang="{{alternateLang}}">{{t:nav.otherLanguage}}</a>
-        <button class="chip" type="button" data-theme-toggle data-label-dark="{{t:theme.toDark}}" data-label-light="{{t:theme.toLight}}" aria-label="{{t:theme.toLight}}">
+        <a class="chip" href="{{otherRoot}}" hreflang="{{alternateLang}}" lang="{{alternateLang}}" aria-label="{{t:nav.otherLanguage}}" data-tip="{{t:nav.otherLanguage}}"><img class="flag" src="{{root}}assets/img/{{otherFlag}}.svg" width="22" height="17" alt=""></a>
+        <button class="chip" type="button" data-theme-toggle data-label-dark="{{t:theme.toDark}}" data-label-light="{{t:theme.toLight}}" aria-label="{{t:theme.toLight}}" data-tip="{{t:theme.toLight}}">
           <span class="only-dark">{{icon:sun}}</span><span class="only-light">{{icon:moon}}</span>
         </button>
       </div>
@@ -162,7 +162,7 @@
   -e MASTER_KEY="$(openssl rand -base64 32)" \
   -v wickwatch-data:/app/data \
   ghcr.io/wickwatch/wickwatch:{{version}}</code></pre>
-          <button class="chip copy" type="button" data-copy="quick-start-command" data-label-done="{{t:start.copied}}" aria-label="{{t:start.copy}}">{{icon:duplicate}}</button>
+          <button class="chip copy" type="button" data-copy="quick-start-command" data-label-done="{{t:start.copied}}" aria-label="{{t:start.copy}}" data-tip="{{t:start.copy}}">{{icon:duplicate}}</button>
           <span class="copied" role="status" data-copy-status></span>
         </div>
         <ol class="steps">

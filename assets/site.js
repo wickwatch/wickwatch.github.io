@@ -5,7 +5,11 @@ const current = () => root.dataset.theme ?? (dark.matches ? "dark" : "light");
 
 for (const button of document.querySelectorAll("[data-theme-toggle]")) {
   // The label names what a click does: switch to the other mode.
-  const label = () => button.setAttribute("aria-label", current() === "dark" ? button.dataset.labelLight : button.dataset.labelDark);
+  const label = () => {
+    const text = current() === "dark" ? button.dataset.labelLight : button.dataset.labelDark;
+    button.setAttribute("aria-label", text);
+    button.dataset.tip = text;
+  };
   label();
   dark.addEventListener("change", label);
   button.addEventListener("click", () => {
