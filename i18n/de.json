@@ -61,7 +61,6 @@
   "showcase.phone.item1": "Meldungen an Telegram, Slack, Discord oder ntfy, wenn ein Bot stoppt, abstürzt oder die Verbindung verliert oder ein Challenge-Limit näher rückt, und wieder, wenn alles in Ordnung ist",
   "showcase.phone.item2": "Eine tägliche Zusammenfassung deiner Konten zu einer Uhrzeit deiner Wahl",
   "showcase.phone.item3": "Ein Heartbeat an einen Dienst wie Healthchecks.io, der dir meldet, wenn wickwatch selbst nicht mehr läuft",
-  "showcase.phone.note": "Betreibe es hinter deinem Reverse Proxy mit HTTPS (nginx-proxy, Traefik oder ein anderer) und halte es von der Öffentlichkeit fern, z. B. mit VPN oder IP-Freigabeliste.",
   "showcase.phone.alt": "wickwatch auf dem Handy: eine Meldung und die erste Kontokarte mit Balance, Equity, Tages-P&L und dem Notstopp-Knopf.",
 
   "how.eyebrow": "So funktioniert es",
@@ -83,7 +82,7 @@
   "start.step1": "Den Setup-Token aus der Log-Zeile <code>No admin yet. Open /setup and enter the setup token: …</code> kopieren.",
   "start.step2": "<code>http://localhost:3000</code> öffnen und Token, Benutzernamen und Passwort eingeben.",
   "start.step3": "Die Zwei-Faktor-Anmeldung gleich oder später unter Profil einrichten. Die Übersicht mit Demo-Daten öffnet sich.",
-  "start.note": "Echte Bots auf einem Server betreiben: die <a href=\"{{repo}}/blob/main/deploy/INSTALL.md\">Schritt-für-Schritt-Installation</a>; alle Einstellungen in der <a href=\"{{repo}}/blob/main/docs/CONFIGURATION.md\">Konfigurationsreferenz</a> (beides Englisch). wickwatch {{version}} ist in früher Entwicklung und läuft auf Demo- und Prop-Challenge-Konten; was als Nächstes kommt, steht in der <a href=\"{{repo}}/blob/main/docs/ROADMAP.md\">Roadmap</a>.",
+  "start.note": "Echte Bots auf einem Server betreiben: die <a href=\"{{repo}}/blob/main/deploy/INSTALL.md\">Schritt-für-Schritt-Installation</a>; alle Einstellungen in der <a href=\"{{repo}}/blob/main/docs/CONFIGURATION.md\">Konfigurationsreferenz</a> (beides Englisch). Betreibe wickwatch hinter deinem Reverse Proxy mit HTTPS (nginx-proxy, Traefik oder ein anderer) und halte es von der Öffentlichkeit fern, z. B. mit VPN oder IP-Freigabeliste. wickwatch {{version}} ist in früher Entwicklung und läuft auf Demo- und Prop-Challenge-Konten; was als Nächstes kommt, steht in der <a href=\"{{repo}}/blob/main/docs/ROADMAP.md\">Roadmap</a>.",
 
   "support.eyebrow": "Unterstützen",
   "support.title": "Ein Hobbyprojekt, frei und offen",

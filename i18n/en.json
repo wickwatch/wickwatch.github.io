@@ -61,7 +61,6 @@
   "showcase.phone.item1": "Alerts to Telegram, Slack, Discord or ntfy when a bot stops, crashes or loses its connection, or a challenge limit gets close, and again when it is fine",
   "showcase.phone.item2": "A daily summary of your accounts at a time you choose",
   "showcase.phone.item3": "A heartbeat to a service like Healthchecks.io, which tells you when wickwatch itself is gone",
-  "showcase.phone.note": "Put it behind your reverse proxy with HTTPS (nginx-proxy, Traefik or any other) and keep it out of public reach, e.g. with a VPN or an IP allowlist.",
   "showcase.phone.alt": "wickwatch on a phone: an alert and the first account card with balance, equity, today's P&L and the emergency stop button.",
 
   "how.eyebrow": "How it works",
@@ -83,7 +82,7 @@
   "start.step1": "Copy the setup token from the log line <code>No admin yet. Open /setup and enter the setup token: …</code>",
   "start.step2": "Open <code>http://localhost:3000</code>, enter the token, a user name and a password.",
   "start.step3": "Set up two-factor authentication now or later under Profile. The overview with demo data opens.",
-  "start.note": "Running real bots on a server: the <a href=\"{{repo}}/blob/main/deploy/INSTALL.md\">step-by-step install guide</a>; all settings in the <a href=\"{{repo}}/blob/main/docs/CONFIGURATION.md\">configuration reference</a>. wickwatch {{version}} is in early development and used on demo and prop-challenge accounts; what comes next is in the <a href=\"{{repo}}/blob/main/docs/ROADMAP.md\">roadmap</a>.",
+  "start.note": "Running real bots on a server: the <a href=\"{{repo}}/blob/main/deploy/INSTALL.md\">step-by-step install guide</a>; all settings in the <a href=\"{{repo}}/blob/main/docs/CONFIGURATION.md\">configuration reference</a>. Put wickwatch behind your reverse proxy with HTTPS (nginx-proxy, Traefik or any other) and keep it out of public reach, e.g. with a VPN or an IP allowlist. wickwatch {{version}} is in early development and used on demo and prop-challenge accounts; what comes next is in the <a href=\"{{repo}}/blob/main/docs/ROADMAP.md\">roadmap</a>.",
 
   "support.eyebrow": "Support",
   "support.title": "A hobby project, free and open",
