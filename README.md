@@ -4,7 +4,7 @@ The project page of [wickwatch](https://github.com/wickwatch/wickwatch): one sta
 
 ## Change the page
 - Texts: `i18n/en.json` and `i18n/de.json` (same keys in both; English is the source).
-- Markup: `src/page.html`. Styles: `assets/css/site.css`, built on `assets/css/tokens.css` (a copy of `design/tokens.css` from the main repo; copy it again when the tokens change).
+- Markup: `src/page.html`, the header shared with the legal page in `src/header.html` (pulled in with `{{partial:header}}`). Styles: `assets/css/site.css`, built on `assets/css/tokens.css` (a copy of `design/tokens.css` from the main repo; copy it again when the tokens change).
 - Build with `node build.mjs` (Node 20+, no dependencies) and commit the generated `index.html` and `de/index.html`. The build fails on a missing string or a placeholder left in the page.
 
 ## Legal notice and privacy

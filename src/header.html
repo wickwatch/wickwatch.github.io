@@ -1,0 +1,20 @@
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="{{home}}" aria-label="{{t:nav.home}}">
+        <img class="only-dark" src="{{root}}assets/img/wickwatch-logo-horizontal-dark.svg" width="130" height="28" alt="wickwatch">
+        <img class="only-light" src="{{root}}assets/img/wickwatch-logo-horizontal-light.svg" width="130" height="28" alt="wickwatch">
+      </a>
+      <nav aria-label="{{t:nav.label}}">
+        <a href="{{home}}#features">{{t:nav.features}}</a>
+        <a href="{{home}}#quick-start">{{t:nav.quickStart}}</a>
+        <a href="{{home}}#support">{{t:nav.support}}</a>
+        <a href="{{repo}}">GitHub</a>
+      </nav>
+      <div class="tools">
+        <a class="chip" href="{{otherRoot}}" hreflang="{{alternateLang}}" lang="{{alternateLang}}" aria-label="{{t:nav.otherLanguage}}" data-tip="{{t:nav.otherLanguage}}"><img class="flag" src="{{root}}assets/img/{{otherFlag}}.svg" width="22" height="17" alt=""></a>
+        <button class="chip" type="button" data-theme-toggle data-label-dark="{{t:theme.toDark}}" data-label-light="{{t:theme.toLight}}" aria-label="{{t:theme.toLight}}" data-tip="{{t:theme.toLight}}">
+          <span class="only-dark">{{icon:sun}}</span><span class="only-light">{{icon:moon}}</span>
+        </button>
+      </div>
+    </div>
+  </header>

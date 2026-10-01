@@ -7,36 +7,24 @@
   <meta name="robots" content="noindex">
   <link rel="canonical" href="{{siteUrl}}/impressum/">
   <meta name="color-scheme" content="dark light">
-  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
-  <link rel="stylesheet" href="../assets/css/tokens.css">
-  <link rel="stylesheet" href="../assets/css/site.css">
+  <link rel="icon" href="{{root}}assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{{root}}assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="{{root}}assets/img/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="{{root}}assets/css/tokens.css">
+  <link rel="stylesheet" href="{{root}}assets/css/site.css">
   <script>
     try { const t = localStorage.getItem("ww-site-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch {}
   </script>
-  <script src="../assets/site.js" defer></script>
+  <script src="{{root}}assets/site.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <a class="skip" href="#main">{{t:nav.skip}}</a>
 
-  <header class="top">
-    <div class="wrap">
-      <a class="logo" href="../de/" aria-label="wickwatch Startseite">
-        <img class="only-dark" src="../assets/img/wickwatch-logo-horizontal-dark.svg" width="130" height="28" alt="wickwatch">
-        <img class="only-light" src="../assets/img/wickwatch-logo-horizontal-light.svg" width="130" height="28" alt="wickwatch">
-      </a>
-      <div class="tools">
-        <button class="chip" type="button" data-theme-toggle data-label-dark="Zum dunklen Modus wechseln" data-label-light="Zum hellen Modus wechseln" aria-label="Zum hellen Modus wechseln" data-tip="Zum hellen Modus wechseln">
-          <span class="only-dark">{{icon:sun}}</span><span class="only-light">{{icon:moon}}</span>
-        </button>
-      </div>
-    </div>
-  </header>
+{{partial:header}}
 
   <main id="main" class="legal">
     <div class="wrap">
-      <p><a href="../de/">← Zur Startseite</a> · <a href="../">English page</a></p>
+      <p><a href="{{home}}">← Zur Startseite</a></p>
 
       <h1 id="impressum">Impressum</h1>
       <p>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG):</p>
@@ -83,8 +71,8 @@
   <footer>
     <div class="wrap">
       <nav aria-label="Links">
-        <a href="../de/">Startseite</a>
-        <a href="../">English</a>
+        <a href="{{home}}">Startseite</a>
+        <a href="{{otherRoot}}" hreflang="en" lang="en">English</a>
         <a href="{{repo}}">GitHub</a>
       </nav>
     </div>

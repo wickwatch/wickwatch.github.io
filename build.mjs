@@ -45,30 +45,37 @@ const shot = (name, lang, alt, root, eager) => {
   return img("dark") + img("light");
 };
 
-const template = readFileSync(new URL("src/page.html", import.meta.url), "utf8");
-const strings = Object.fromEntries(LANGS.map((l) => [l.code, JSON.parse(readFileSync(new URL(`i18n/${l.code}.json`, import.meta.url), "utf8"))]));
+const read = (file) => readFileSync(new URL(file, import.meta.url), "utf8");
+/** `{{partial:name}}` pulls in src/<name>.html, e.g. the header shared by all pages. */
+const withPartials = (text) => text.replace(/\{\{partial:([a-z]+)\}\}/g, (_, name) => read(`src/${name}.html`));
+const strings = Object.fromEntries(LANGS.map((l) => [l.code, JSON.parse(read(`i18n/${l.code}.json`))]));
 
 // Both languages must have the same keys.
 const keys = (lang) => Object.keys(strings[lang]).sort().join("\n");
 if (keys("en") !== keys("de")) throw new Error("i18n/en.json and i18n/de.json have different keys");
 
-for (const lang of LANGS) {
+/** Fills a template for one language; `out` is the page's path, e.g. "de/index.html". */
+function render(file, lang, out, extra = {}) {
   const t = strings[lang.code];
-  const root = lang.dir ? "../" : "./";
+  const depth = out.split("/").length - 1;
+  const root = depth ? "../".repeat(depth) : "./";
   const other = LANGS.find((l) => l !== lang);
   const values = {
     lang: lang.code,
     locale: lang.locale,
     root,
+    // The start page of this language; section links in the header point into it.
+    home: `${root}${lang.dir}`,
     url: `${SITE_URL}/${lang.dir}`,
     alternate: `${SITE_URL}/${other.dir}`,
     alternateLang: other.code,
-    otherRoot: lang.dir ? "../" : `./${other.dir}`,
+    otherRoot: `${root}${other.dir}`,
     otherFlag: other.flag,
     siteUrl: SITE_URL,
     repo: REPO,
     version: VERSION,
-    year: String(new Date().getUTCFullYear()),
+    legalDate: LEGAL_DATE,
+    ...extra,
   };
   const fill = (text) =>
     text
@@ -82,23 +89,16 @@ for (const lang of LANGS) {
         if (!(key in values)) throw new Error(`missing value ${key}`);
         return values[key];
       });
-  const html = fill(template);
+  const html = fill(withPartials(read(file)));
   const left = html.match(/\{\{[^}]*\}\}/);
-  if (left) throw new Error(`unreplaced placeholder ${left[0]} (${lang.code})`);
-  if (lang.dir) mkdirSync(new URL(lang.dir, import.meta.url), { recursive: true });
-  writeFileSync(new URL(`${lang.dir}index.html`, import.meta.url), html);
-  console.log(`${lang.dir}index.html`);
+  if (left) throw new Error(`unreplaced placeholder ${left[0]} (${out})`);
+  if (depth) mkdirSync(new URL(out.slice(0, out.lastIndexOf("/") + 1), import.meta.url), { recursive: true });
+  writeFileSync(new URL(out, import.meta.url), html);
+  console.log(out);
 }
 
 // Legal notice and privacy policy: German only, as required for a site run from Germany.
 const LEGAL_DATE = "1. Oktober 2026";
-const legal = readFileSync(new URL("src/legal.html", import.meta.url), "utf8")
-  .replace(/\{\{icon:([a-z]+)\}\}/g, (_, name) => icon(name))
-  .replace(/\{\{([a-zA-Z]+)\}\}/g, (_, key) => {
-    const values = { siteUrl: SITE_URL, repo: REPO, legalDate: LEGAL_DATE };
-    if (!(key in values)) throw new Error(`missing value ${key} (legal)`);
-    return values[key];
-  });
-mkdirSync(new URL("impressum/", import.meta.url), { recursive: true });
-writeFileSync(new URL("impressum/index.html", import.meta.url), legal);
-console.log("impressum/index.html");
+
+for (const lang of LANGS) render("src/page.html", lang, `${lang.dir}index.html`);
+render("src/legal.html", LANGS.find((l) => l.code === "de"), "impressum/index.html");
