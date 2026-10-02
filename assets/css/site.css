@@ -115,6 +115,9 @@ section + section { border-top: 1px solid var(--ww-border); }
 .card h3 { display: flex; align-items: center; gap: var(--ww-space-3); }
 .card h3 svg { width: 22px; height: 22px; color: var(--ww-accent); flex: none; }
 .card p { color: var(--ww-text-muted); margin-top: var(--ww-space-3); font-size: var(--ww-size-md); }
+/* A card after a full set of rows takes the whole row instead of standing alone in the first column. */
+.card.wide { grid-column: 1 / -1; }
+.card.wide p { max-width: 75ch; }
 
 .showcase { display: grid; gap: var(--ww-space-12); }
 /* The spacing scale ends at 48 px; side-by-side screenshots need twice that to read as separate blocks. */

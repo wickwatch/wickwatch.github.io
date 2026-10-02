@@ -39,6 +39,8 @@
   "features.challenges.text": "Profit target, daily loss, drawdown, trading days and duration per account, with templates for FTMO and The Trading Pit. An optional loss guard runs the emergency stop before a limit is used up.",
   "features.security.title": "Secure by default",
   "features.security.text": "Built-in login with optional two-factor authentication and read-only users. Broker credentials encrypted at rest. Docker only through a socket proxy.",
+  "features.api.title": "API and AI assistants",
+  "features.api.text": "A REST API with OpenAPI docs and API tokens for your scripts. AI assistants that speak the Model Context Protocol (MCP) read accounts, challenge limits, instances, logs and alerts, so you can ask them whether your bots are running. Read-only: they never start, stop or trade.",
 
   "showcase.instance.eyebrow": "Instances",
   "showcase.instance.title": "Every instance in detail",

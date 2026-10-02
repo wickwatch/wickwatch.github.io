@@ -39,6 +39,8 @@
   "features.challenges.text": "Profit-Ziel, Tagesverlust, Drawdown, Handelstage und Laufzeit pro Konto, mit Vorlagen für FTMO und The Trading Pit. Ein optionaler Schutz löst den Notstopp aus, bevor ein Limit ausgeschöpft ist.",
   "features.security.title": "Von Haus aus sicher",
   "features.security.text": "Eingebauter Login mit optionaler Zwei-Faktor-Anmeldung und Nutzern, die nur lesen dürfen. Broker-Zugangsdaten verschlüsselt gespeichert. Docker nur über einen Socket-Proxy.",
+  "features.api.title": "API und KI-Assistenten",
+  "features.api.text": "Eine REST-API mit OpenAPI-Doku und API-Tokens für deine Skripte. KI-Assistenten, die das Model Context Protocol (MCP) sprechen, lesen Konten, Challenge-Limits, Instanzen, Logs und Meldungen, so kannst du sie fragen, ob deine Bots laufen. Nur lesend: Sie starten, stoppen und handeln nie.",
 
   "showcase.instance.eyebrow": "Instanzen",
   "showcase.instance.title": "Jede Instanz im Detail",
