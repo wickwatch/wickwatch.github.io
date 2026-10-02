@@ -88,7 +88,7 @@
         </div>
         <div class="grid">
           <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6.5h10M9 12h10M9 17.5h10"/><path d="M5 6.5h.01M5 12h.01M5 17.5h.01"/></svg>Overview</h3><p>Accounts with balance, equity, today's P&L, open positions and pending orders. All instances with status, uptime and their last log line. Alerts for stopped, crashed or disconnected bots, broker errors and challenge limits.</p></div>
-          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5v15l11.5-7.5z"/></svg>Instances</h3><p>Start, stop, restart. Create bots from an uploaded algo with a form built from its parameters; load or download parameter files. Every save is a version you can restore.</p></div>
+          <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5v15l11.5-7.5z"/></svg>Instances</h3><p>Start, stop, restart. Create bots from an uploaded algo with a form built from its parameters; load or download parameter files. Every save is a version you can restore, and parameter templates switch any instance of the algo to a saved set.</p></div>
           <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7l4.5 4.5L5 16"/><path d="M12 17h7"/></svg>Live log</h3><p>Follow each bot's log live, search it in a larger view, and download the last 24 hours, 7 days or everything as a text file.</p></div>
           <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>Emergency stop</h3><p>One button per account stops its bots, cancels its orders and closes its positions. Always with confirmation, always in the audit log.</p></div>
           <div class="card"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Prop challenges</h3><p>Profit target, daily loss, drawdown, trading days and duration per account, with templates for FTMO and The Trading Pit. An optional loss guard runs the emergency stop before a limit is used up.</p></div>
@@ -170,7 +170,7 @@
           <pre><code id="quick-start-command">docker run --rm -p 3000:3000 \
   -e MASTER_KEY="$(openssl rand -base64 32)" \
   -v wickwatch-data:/app/data \
-  ghcr.io/wickwatch/wickwatch:0.2.0</code></pre>
+  ghcr.io/wickwatch/wickwatch:0.3.0</code></pre>
           <button class="chip copy" type="button" data-copy="quick-start-command" data-label-done="Copied" aria-label="Copy command" data-tip="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></svg></button>
           <span class="copied" role="status" data-copy-status></span>
         </div>
@@ -179,7 +179,7 @@
           <li>Open <code>http://localhost:3000</code>, enter the token, a user name and a password.</li>
           <li>Set up two-factor authentication now or later under Profile. The overview with demo data opens.</li>
         </ol>
-        <p class="note">Running real bots on a server: the <a href="https://github.com/wickwatch/wickwatch/blob/main/deploy/INSTALL.md">step-by-step install guide</a>; all settings in the <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/CONFIGURATION.md">configuration reference</a>. Put wickwatch behind your reverse proxy with HTTPS (nginx-proxy, Traefik or any other) and keep it out of public reach, e.g. with a VPN or an IP allowlist. wickwatch 0.2.0 is in early development and used on demo and prop-challenge accounts; what comes next is in the <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/ROADMAP.md">roadmap</a>.</p>
+        <p class="note">Running real bots on a server: the <a href="https://github.com/wickwatch/wickwatch/blob/main/deploy/INSTALL.md">step-by-step install guide</a>; all settings in the <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/CONFIGURATION.md">configuration reference</a>. Put wickwatch behind your reverse proxy with HTTPS (nginx-proxy, Traefik or any other) and keep it out of public reach, e.g. with a VPN or an IP allowlist. wickwatch 0.3.0 is in early development and used on demo and prop-challenge accounts; what comes next is in the <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/ROADMAP.md">roadmap</a>.</p>
       </div>
     </section>
 

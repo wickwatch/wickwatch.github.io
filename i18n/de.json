@@ -30,7 +30,7 @@
   "features.overview.title": "Übersicht",
   "features.overview.text": "Konten mit Balance, Equity, Tages-P&L, offenen Positionen und Pending Orders. Alle Instanzen mit Status, Laufzeit und letzter Log-Zeile. Meldungen bei gestoppten, abgestürzten oder getrennten Bots, Broker-Fehlern und Challenge-Limits.",
   "features.instances.title": "Instanzen",
-  "features.instances.text": "Starten, stoppen, neu starten. Bots aus einem hochgeladenen Algo anlegen, mit einem Formular aus dessen Parametern; Parameterdateien laden oder herunterladen. Jedes Speichern ist eine Version, die sich wiederherstellen lässt.",
+  "features.instances.text": "Starten, stoppen, neu starten. Bots aus einem hochgeladenen Algo anlegen, mit einem Formular aus dessen Parametern; Parameterdateien laden oder herunterladen. Jedes Speichern ist eine Version, die sich wiederherstellen lässt, und Parametervorlagen stellen jede Instanz des Algos auf einen gespeicherten Satz um.",
   "features.log.title": "Live-Log",
   "features.log.text": "Das Log jedes Bots live verfolgen, in einer größeren Ansicht durchsuchen und die letzten 24 Stunden, 7 Tage oder alles als Textdatei herunterladen.",
   "features.stop.title": "Notstopp",

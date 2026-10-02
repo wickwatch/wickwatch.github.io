@@ -30,7 +30,7 @@
   "features.overview.title": "Overview",
   "features.overview.text": "Accounts with balance, equity, today's P&L, open positions and pending orders. All instances with status, uptime and their last log line. Alerts for stopped, crashed or disconnected bots, broker errors and challenge limits.",
   "features.instances.title": "Instances",
-  "features.instances.text": "Start, stop, restart. Create bots from an uploaded algo with a form built from its parameters; load or download parameter files. Every save is a version you can restore.",
+  "features.instances.text": "Start, stop, restart. Create bots from an uploaded algo with a form built from its parameters; load or download parameter files. Every save is a version you can restore, and parameter templates switch any instance of the algo to a saved set.",
   "features.log.title": "Live log",
   "features.log.text": "Follow each bot's log live, search it in a larger view, and download the last 24 hours, 7 days or everything as a text file.",
   "features.stop.title": "Emergency stop",
