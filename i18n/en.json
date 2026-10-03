@@ -93,7 +93,7 @@
   "support.sponsors": "GitHub Sponsors",
   "support.issues": "Report an issue",
 
-  "footer.disclaimer": "wickwatch is a monitoring and control tool, not financial advice. Trading involves risk; you are responsible for your bots and accounts. cTrader is a trademark of its respective owner; wickwatch is not affiliated with or endorsed by Spotware.",
+  "footer.disclaimer": "wickwatch is a monitoring and control tool, not financial advice. Trading involves risk; you are responsible for your bots and accounts. cTrader is a trademark of its respective owner; wickwatch is not affiliated with or endorsed by Spotware. wickwatch does not include any cTrader software; the cTrader CLI is subject to Spotware's licence terms.",
   "footer.label": "Links",
   "footer.changelog": "Changelog",
   "footer.guide": "User guide",
