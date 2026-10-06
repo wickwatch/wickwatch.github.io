@@ -73,6 +73,7 @@
         <li>Daily loss with reset time and time zone, measured on balance or equity</li>
         <li>Max drawdown: static, trailing, or trailing on the end-of-day balance</li>
         <li>Minimum trading days and duration</li>
+        <li>Days without a trade after which the firm closes an inactive account</li>
       </ul>
       <p>Templates for FTMO and The Trading Pit fill in a profile; the rules of any other firm can be entered by hand. Every account has its own profile.</p>
       <h2>Before a limit is reached</h2>
@@ -80,6 +81,7 @@
         <li>The account page shows how far the profit target is and how much of the daily loss, the max drawdown, the trading days and the duration is used.</li>
         <li>Alerts go to Telegram, Slack, Discord or ntfy when a limit gets close, and again when it is fine.</li>
         <li>A risk preview shows a bot's risk per trade in money against the challenge's loss limits.</li>
+        <li>An alert when an account has gone without a trade for half of the days the firm allows, so it is not closed for inactivity. Only an executed trade counts.</li>
         <li>An optional loss guard runs the emergency stop when a limit is nearly used up: the account's bots are stopped, its orders cancelled and its positions closed.</li>
       </ul>
       <div class="shot"><img class="only-dark" src="../assets/shots/account-dark-en.webp" width="2000" height="1250" alt="Account page of a demo prop challenge: balance and equity, the challenge with progress bars for profit target, daily loss, max drawdown, trading days and duration, and the account's instances." loading="lazy"><img class="only-light" src="../assets/shots/account-light-en.webp" width="2000" height="1250" alt="Account page of a demo prop challenge: balance and equity, the challenge with progress bars for profit target, daily loss, max drawdown, trading days and duration, and the account's instances." loading="lazy"></div>

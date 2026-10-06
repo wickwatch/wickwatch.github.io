@@ -9,7 +9,7 @@ wickwatch watches and controls bots; it does not trade by itself, contains no st
 - Overview of all accounts (balance, equity, today's P&L, open positions, pending orders) and all bot instances (status, uptime, last log line), with alerts for stopped, crashed or disconnected bots.
 - Instances: start, stop, restart; create bots from an uploaded algo with a form built from its parameters; load and download `.cbotset` parameter files; every save is a version that can be restored; parameter templates.
 - Emergency stop per account: stops its bots, cancels its orders, closes its positions (with confirmation, audit-logged).
-- Prop challenges: profit target, daily loss, max drawdown (static, trailing, trailing on end-of-day balance), minimum trading days and duration; an optional loss guard runs the emergency stop before a limit is used up.
+- Prop challenges: profit target, daily loss, max drawdown (static, trailing, trailing on end-of-day balance), minimum trading days and duration; a warning before the firm closes an account that has gone too long without an executed trade; an optional loss guard runs the emergency stop before a limit is used up.
 - Schedules: pause bots on weekends, holidays and around economic news.
 - Notifications to Telegram, Slack, Discord or ntfy; heartbeat to services like Healthchecks.io.
 - REST API with OpenAPI docs and API tokens; a read-only MCP (Model Context Protocol) endpoint for AI assistants.

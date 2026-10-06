@@ -73,6 +73,7 @@
         <li>Tagesverlust mit Reset-Zeit und Zeitzone, gemessen an Balance oder Equity</li>
         <li>Maximaler Drawdown: statisch, nachziehend oder nachziehend auf der Balance zum Tagesende</li>
         <li>Mindestzahl an Handelstagen und Laufzeit</li>
+        <li>Tage ohne Trade, nach denen der Anbieter ein inaktives Konto schließt</li>
       </ul>
       <p>Vorlagen für FTMO und The Trading Pit füllen ein Profil aus; die Regeln jeder anderen Firma lassen sich von Hand eintragen. Jedes Konto hat sein eigenes Profil.</p>
       <h2>Bevor ein Limit erreicht ist</h2>
@@ -80,6 +81,7 @@
         <li>Die Kontoseite zeigt, wie weit das Profit-Ziel entfernt ist und wie viel von Tagesverlust, maximalem Drawdown, Handelstagen und Laufzeit verbraucht ist.</li>
         <li>Meldungen gehen an Telegram, Slack, Discord oder ntfy, wenn ein Limit näher rückt, und wieder, wenn alles in Ordnung ist.</li>
         <li>Eine Risikovorschau zeigt das Risiko pro Trade eines Bots in Geld, gemessen an den Verlustlimits der Challenge.</li>
+        <li>Eine Meldung, wenn ein Konto die Hälfte der erlaubten Tage ohne Trade ist, damit es nicht wegen Inaktivität geschlossen wird. Es zählt nur ein ausgeführter Trade.</li>
         <li>Ein optionaler Verlustschutz löst den Notstopp aus, wenn ein Limit fast ausgeschöpft ist: Die Bots des Kontos werden gestoppt, seine Orders storniert und seine Positionen geschlossen.</li>
       </ul>
       <div class="shot"><img class="only-dark" src="../../assets/shots/account-dark-de.webp" width="2000" height="1250" alt="Kontoseite einer Demo-Prop-Challenge: Balance und Equity, die Challenge mit Fortschrittsbalken für Profit-Ziel, Tagesverlust, Max-Drawdown, Handelstage und Laufzeit sowie die Instanzen des Kontos." loading="lazy"><img class="only-light" src="../../assets/shots/account-light-de.webp" width="2000" height="1250" alt="Kontoseite einer Demo-Prop-Challenge: Balance und Equity, die Challenge mit Fortschrittsbalken für Profit-Ziel, Tagesverlust, Max-Drawdown, Handelstage und Laufzeit sowie die Instanzen des Kontos." loading="lazy"></div>
