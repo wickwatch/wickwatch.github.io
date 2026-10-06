@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prop-firm challenge limits for trading bots – wickwatch</title>
+  <meta name="description" content="Keep the daily loss, max drawdown and profit target of an FTMO or other prop-firm challenge in view while your bots trade, with alerts and an optional loss guard. Self-hosted, open source.">
+  <link rel="canonical" href="https://wickwatch.github.io/prop-firm-challenges/">
+  <link rel="alternate" hreflang="en" href="https://wickwatch.github.io/prop-firm-challenges/">
+  <link rel="alternate" hreflang="de" href="https://wickwatch.github.io/de/prop-firm-challenges/">
+  <link rel="alternate" hreflang="x-default" href="https://wickwatch.github.io/prop-firm-challenges/">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0F1318" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F7F6F2" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="wickwatch">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://wickwatch.github.io/prop-firm-challenges/">
+  <meta property="og:title" content="Prop-firm challenge limits for trading bots – wickwatch">
+  <meta property="og:description" content="Keep the daily loss, max drawdown and profit target of an FTMO or other prop-firm challenge in view while your bots trade, with alerts and an optional loss guard. Self-hosted, open source.">
+  <meta property="og:image" content="https://wickwatch.github.io/assets/img/social-preview.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Keep prop-firm challenge limits in view while your bots trade","description":"Keep the daily loss, max drawdown and profit target of an FTMO or other prop-firm challenge in view while your bots trade, with alerts and an optional loss guard. Self-hosted, open source.","url":"https://wickwatch.github.io/prop-firm-challenges/","inLanguage":"en","image":"https://wickwatch.github.io/assets/img/social-preview.png","about":{"@type":"SoftwareApplication","name":"wickwatch","url":"https://wickwatch.github.io/","applicationCategory":"FinanceApplication","operatingSystem":"Linux, Docker"}}</script>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>
+    // Apply a theme chosen earlier before the first paint; without one the system preference decides.
+    try { const t = localStorage.getItem("ww-site-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch {}
+  </script>
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="../" aria-label="wickwatch home">
+        <img class="only-dark" src="../assets/img/wickwatch-logo-horizontal-dark.svg" width="130" height="28" alt="wickwatch">
+        <img class="only-light" src="../assets/img/wickwatch-logo-horizontal-light.svg" width="130" height="28" alt="wickwatch">
+      </a>
+      <nav aria-label="Sections">
+        <a href="../#features">Features</a>
+        <a href="../#quick-start">Quick start</a>
+        <a href="../#support">Support</a>
+        <a href="https://github.com/wickwatch/wickwatch">GitHub</a>
+      </nav>
+      <div class="tools">
+        <a class="chip" href="../de/prop-firm-challenges/" hreflang="de" lang="de" aria-label="Deutsch" data-tip="Deutsch"><img class="flag" src="../assets/img/de.svg" width="22" height="17" alt=""></a>
+        <button class="chip" type="button" data-theme-toggle data-label-dark="Switch to dark mode" data-label-light="Switch to light mode" aria-label="Switch to light mode" data-tip="Switch to light mode">
+          <span class="only-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></span><span class="only-light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.5A8 8 0 1 1 9.5 4.5a6.5 6.5 0 0 0 10 10z"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <main id="main" class="topic">
+    <article class="wrap">
+      <p class="back"><a href="../">← wickwatch home</a></p>
+      <p class="eyebrow">Prop challenges</p>
+      <h1>Keep prop-firm challenge limits in view while your bots trade</h1>
+      <p class="lead">A challenge ends at the daily loss or the maximum drawdown, whether you were watching or not. wickwatch measures each account against its challenge rules, shows how much of every limit is used, tells you before one is reached, and can stop the account's bots by itself.</p>
+      <h2>What a challenge profile holds</h2>
+      <ul>
+        <li>Profit target</li>
+        <li>Daily loss with reset time and time zone, measured on balance or equity</li>
+        <li>Max drawdown: static, trailing, or trailing on the end-of-day balance</li>
+        <li>Minimum trading days and duration</li>
+      </ul>
+      <p>Templates for FTMO and The Trading Pit fill in a profile; the rules of any other firm can be entered by hand. Every account has its own profile.</p>
+      <h2>Before a limit is reached</h2>
+      <ul>
+        <li>The account page shows how far the profit target is and how much of the daily loss, the max drawdown, the trading days and the duration is used.</li>
+        <li>Alerts go to Telegram, Slack, Discord or ntfy when a limit gets close, and again when it is fine.</li>
+        <li>A risk preview shows a bot's risk per trade in money against the challenge's loss limits.</li>
+        <li>An optional loss guard runs the emergency stop when a limit is nearly used up: the account's bots are stopped, its orders cancelled and its positions closed.</li>
+      </ul>
+      <div class="shot"><img class="only-dark" src="../assets/shots/account-dark-en.webp" width="2000" height="1250" alt="Account page of a demo prop challenge: balance and equity, the challenge with progress bars for profit target, daily loss, max drawdown, trading days and duration, and the account's instances." loading="lazy"><img class="only-light" src="../assets/shots/account-light-en.webp" width="2000" height="1250" alt="Account page of a demo prop challenge: balance and equity, the challenge with progress bars for profit target, daily loss, max drawdown, trading days and duration, and the account's instances." loading="lazy"></div>
+      <h2>What to keep in mind</h2>
+      <p>The firm's own figures decide, not wickwatch's. wickwatch reads balance and equity at intervals (every 60 seconds by default), so a fast move can pass a limit between two readings; values it could not measure exactly are marked as estimates. Treat the loss guard as a safety net, not as a guarantee.</p>
+      <p>Prop firms also have rules on automation, devices and IP addresses. They differ between firms and change often: read the <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/PROP-FIRMS.md">notes on prop-firm accounts</a> and your firm's terms before you connect a challenge or funded account.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="../#quick-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5v15l11.5-7.5z"/></svg>Quick start</a>
+        <a class="btn btn-ghost" href="https://github.com/wickwatch/wickwatch/blob/main/docs/PROP-FIRMS.md">Notes on prop firms<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 4.5h6v6"/><path d="M19.5 4.5l-8 8"/><path d="M17 13.5v5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h5"/></svg></a>
+      </div>
+      <p class="note">wickwatch is not affiliated with FTMO, The Trading Pit or any other prop firm. It is a monitoring and control tool, not financial advice, and makes no promise that a challenge is passed.</p>
+      <nav class="more" aria-label="More">
+        <h2>More</h2>
+        <ul>
+          <li><a href="../ctrader-docker/">Run cTrader cBots in Docker</a></li>
+          <li><a href="../prop-firm-challenges/">Prop-firm challenge limits</a></li>
+          <li><a href="../mcp/">AI assistants through MCP</a></li>
+          <li><a href="https://github.com/wickwatch/wickwatch/blob/main/docs/USER-GUIDE.md">User guide</a></li>
+        </ul>
+      </nav>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>wickwatch is a monitoring and control tool, not financial advice. Trading involves risk; you are responsible for your bots and accounts. cTrader is a trademark of its respective owner; wickwatch is not affiliated with or endorsed by Spotware. wickwatch does not include any cTrader software; the cTrader CLI is subject to Spotware's licence terms.</p>
+      <nav aria-label="Links">
+        <a href="https://github.com/wickwatch/wickwatch">GitHub</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/CHANGELOG.md">Changelog</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/USER-GUIDE.md">User guide</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/SECURITY.md">Security</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/LICENSE">Licence (AGPL-3.0)</a>
+        <a href="https://ko-fi.com/mmohrx">Ko-fi</a>
+        <a href="../impressum/" hreflang="de">Legal notice & privacy (German)</a>
+      </nav>
+      <p>This site sets no cookies and uses no tracking. Fonts are served from this site.</p>
+    </div>
+  </footer>
+</body>
+</html>

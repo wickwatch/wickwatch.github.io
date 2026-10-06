@@ -24,6 +24,12 @@ docker run --rm -p 3000:3000 -e MASTER_KEY="$(openssl rand -base64 32)" -v wickw
 
 The image starts with a demo adapter (fake accounts, instances, positions and logs), so no broker or bots are needed to try it.
 
+## Guides
+
+- [Run cTrader cBots in Docker, with a dashboard]({{siteUrl}}/ctrader-docker/): what wickwatch does with the bots, the two ways to define them, what is needed
+- [Prop-firm challenge limits]({{siteUrl}}/prop-firm-challenges/): challenge profiles, alerts, the loss guard and its limits
+- [AI assistants through MCP]({{siteUrl}}/mcp/): what the read-only MCP endpoint offers and how to connect a client
+
 ## Docs
 
 - [README]({{repo}}/blob/main/README.md): features, architecture, quick start

@@ -1,11 +1,12 @@
 # wickwatch.github.io
 
-The project page of [wickwatch](https://github.com/wickwatch/wickwatch): one static page in English (`index.html`) and German (`de/index.html`), served by GitHub Pages. No framework, no tracking, fonts served from the site.
+The project page of [wickwatch](https://github.com/wickwatch/wickwatch): a static start page and three topic pages, each in English and German (`de/`), served by GitHub Pages. No framework, no tracking, fonts served from the site.
 
 ## Change the page
 - Texts: `i18n/en.json` and `i18n/de.json` (same keys in both; English is the source).
 - Markup: `src/page.html`, the header shared with the legal page in `src/header.html` (pulled in with `{{partial:header}}`). Styles: `assets/css/site.css`, built on `assets/css/tokens.css` (a copy of `design/tokens.css` from the main repo; copy it again when the tokens change).
-- Build with `node build.mjs` (Node 20+, no dependencies) and commit the generated `index.html` and `de/index.html`. The build fails on a missing string or a placeholder left in the page.
+- Build with `node build.mjs` (Node 20+, no dependencies) and commit the generated pages. The build fails on a missing string or a placeholder left in the page.
+- Topic pages (`ctrader-docker/`, `prop-firm-challenges/`, `mcp/`): the frame is `src/topic.html`, each body `src/topics/<key>.html`, the strings `topic.<key>.*`. For a new one add it to `TOPICS` in `build.mjs`, to the guides section in `src/page.html`, the list in `src/topic.html` and `src/llms.md`. Keep them in line with the docs in the main repo they summarise.
 - For search engines and AI assistants the build also writes `sitemap.xml`, `robots.txt`, the schema.org data in each page's head and `llms.txt` (from `src/llms.md`: update it when features or docs change). Commit them too.
 
 ## Legal notice and privacy

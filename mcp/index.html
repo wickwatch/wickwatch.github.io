@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MCP server for trading bots, read-only – wickwatch</title>
+  <meta name="description" content="wickwatch has a read-only MCP endpoint: AI assistants such as Claude read your accounts, bot instances, logs, alerts and challenge limits. They cannot start, stop or trade.">
+  <link rel="canonical" href="https://wickwatch.github.io/mcp/">
+  <link rel="alternate" hreflang="en" href="https://wickwatch.github.io/mcp/">
+  <link rel="alternate" hreflang="de" href="https://wickwatch.github.io/de/mcp/">
+  <link rel="alternate" hreflang="x-default" href="https://wickwatch.github.io/mcp/">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0F1318" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F7F6F2" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="wickwatch">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://wickwatch.github.io/mcp/">
+  <meta property="og:title" content="MCP server for trading bots, read-only – wickwatch">
+  <meta property="og:description" content="wickwatch has a read-only MCP endpoint: AI assistants such as Claude read your accounts, bot instances, logs, alerts and challenge limits. They cannot start, stop or trade.">
+  <meta property="og:image" content="https://wickwatch.github.io/assets/img/social-preview.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Ask your AI assistant whether your trading bots are running","description":"wickwatch has a read-only MCP endpoint: AI assistants such as Claude read your accounts, bot instances, logs, alerts and challenge limits. They cannot start, stop or trade.","url":"https://wickwatch.github.io/mcp/","inLanguage":"en","image":"https://wickwatch.github.io/assets/img/social-preview.png","about":{"@type":"SoftwareApplication","name":"wickwatch","url":"https://wickwatch.github.io/","applicationCategory":"FinanceApplication","operatingSystem":"Linux, Docker"}}</script>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>
+    // Apply a theme chosen earlier before the first paint; without one the system preference decides.
+    try { const t = localStorage.getItem("ww-site-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch {}
+  </script>
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="../" aria-label="wickwatch home">
+        <img class="only-dark" src="../assets/img/wickwatch-logo-horizontal-dark.svg" width="130" height="28" alt="wickwatch">
+        <img class="only-light" src="../assets/img/wickwatch-logo-horizontal-light.svg" width="130" height="28" alt="wickwatch">
+      </a>
+      <nav aria-label="Sections">
+        <a href="../#features">Features</a>
+        <a href="../#quick-start">Quick start</a>
+        <a href="../#support">Support</a>
+        <a href="https://github.com/wickwatch/wickwatch">GitHub</a>
+      </nav>
+      <div class="tools">
+        <a class="chip" href="../de/mcp/" hreflang="de" lang="de" aria-label="Deutsch" data-tip="Deutsch"><img class="flag" src="../assets/img/de.svg" width="22" height="17" alt=""></a>
+        <button class="chip" type="button" data-theme-toggle data-label-dark="Switch to dark mode" data-label-light="Switch to light mode" aria-label="Switch to light mode" data-tip="Switch to light mode">
+          <span class="only-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></span><span class="only-light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.5A8 8 0 1 1 9.5 4.5a6.5 6.5 0 0 0 10 10z"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <main id="main" class="topic">
+    <article class="wrap">
+      <p class="back"><a href="../">← wickwatch home</a></p>
+      <p class="eyebrow">Model Context Protocol</p>
+      <h1>Ask your AI assistant whether your trading bots are running</h1>
+      <p class="lead">wickwatch has a read-only Model Context Protocol (MCP) endpoint. An AI client that speaks MCP reads the same data as the dashboard and answers questions like “Are all bots running?”, “Why did this one stop last night?” or “How much of the daily loss is used?”.</p>
+      <h2>What an assistant can read</h2>
+      <ul>
+        <li>The overview: all accounts, all instances with status, uptime and broker connection, and the current alerts</li>
+        <li>One account with its challenge evaluation, open positions and pending orders</li>
+        <li>One instance with its deals, the realised P&amp;L curve and key figures such as win rate, profit factor and risk per trade</li>
+        <li>Log lines of an instance, searched by text, time, or for problems only</li>
+        <li>What changed on a position while it was open: stop loss, take profit, volume</li>
+        <li>CPU, memory and disk of the host, and whether its clock is in sync</li>
+        <li>With an admin token: the audit log and the parameter values of an instance, without values whose name looks like a secret</li>
+      </ul>
+      <h2>What it cannot do</h2>
+      <p>Anything that changes something: there are no tools to start, stop, configure or trade, on purpose. Log lines, order labels and comments are written by bots and brokers and reach the model as untrusted text. A line in a log that reads like an instruction must not be able to stop a bot or close a position.</p>
+      <h2>Set it up</h2>
+      <ol>
+        <li>In wickwatch, open the user menu → API tokens and create a token. The viewer role is enough.</li>
+        <li>Add the address shown on that page to your client, with the header <code>Authorization: Bearer &lt;token&gt;</code>.</li>
+      </ol>
+      <p>With Claude Code, for example:</p>
+      <div class="code">
+        <pre><code>claude mcp add --transport http wickwatch https://wickwatch.example.com/mcp \
+  --header "Authorization: Bearer ww_…"</code></pre>
+      </div>
+      <p>Clients configured with JSON take the same address and header. The example, all tools with their arguments and troubleshooting are in <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/MCP.md">docs/MCP.md</a>.</p>
+      <h2>Security</h2>
+      <ul>
+        <li>The endpoint takes an API token only, never the session cookie of the web app.</li>
+        <li>A request acts with at most the token's role; deleting the token cuts the client off at once.</li>
+        <li>Tokens are stored only as a hash, shown once, and can expire.</li>
+        <li><code>MCP=off</code> switches the endpoint off.</li>
+      </ul>
+      <div class="actions">
+        <a class="btn btn-primary" href="../#quick-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5v15l11.5-7.5z"/></svg>Quick start</a>
+        <a class="btn btn-ghost" href="https://github.com/wickwatch/wickwatch/blob/main/docs/MCP.md">MCP documentation<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 4.5h6v6"/><path d="M19.5 4.5l-8 8"/><path d="M17 13.5v5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h5"/></svg></a>
+      </div>
+      <nav class="more" aria-label="More">
+        <h2>More</h2>
+        <ul>
+          <li><a href="../ctrader-docker/">Run cTrader cBots in Docker</a></li>
+          <li><a href="../prop-firm-challenges/">Prop-firm challenge limits</a></li>
+          <li><a href="../mcp/">AI assistants through MCP</a></li>
+          <li><a href="https://github.com/wickwatch/wickwatch/blob/main/docs/USER-GUIDE.md">User guide</a></li>
+        </ul>
+      </nav>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>wickwatch is a monitoring and control tool, not financial advice. Trading involves risk; you are responsible for your bots and accounts. cTrader is a trademark of its respective owner; wickwatch is not affiliated with or endorsed by Spotware. wickwatch does not include any cTrader software; the cTrader CLI is subject to Spotware's licence terms.</p>
+      <nav aria-label="Links">
+        <a href="https://github.com/wickwatch/wickwatch">GitHub</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/CHANGELOG.md">Changelog</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/docs/USER-GUIDE.md">User guide</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/SECURITY.md">Security</a>
+        <a href="https://github.com/wickwatch/wickwatch/blob/main/LICENSE">Licence (AGPL-3.0)</a>
+        <a href="https://ko-fi.com/mmohrx">Ko-fi</a>
+        <a href="../impressum/" hreflang="de">Legal notice & privacy (German)</a>
+      </nav>
+      <p>This site sets no cookies and uses no tracking. Fonts are served from this site.</p>
+    </div>
+  </footer>
+</body>
+</html>

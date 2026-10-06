@@ -8,6 +8,13 @@ const SITE_URL = "https://wickwatch.github.io";
 const VERSION = "0.6.0";
 const REPO = "https://github.com/wickwatch/wickwatch";
 
+/** The topic pages: `slug` is the folder (the same in both languages), `key` the strings `topic.<key>.*` and the body in src/topics/. */
+const TOPICS = [
+  { slug: "ctrader-docker", key: "docker" },
+  { slug: "prop-firm-challenges", key: "prop" },
+  { slug: "mcp", key: "mcp" },
+];
+
 const LANGS = [
   { code: "en", dir: "", locale: "en_GB", flag: "gb-us" },
   { code: "de", dir: "de/", locale: "de_DE", flag: "de" },
@@ -58,9 +65,12 @@ const strings = Object.fromEntries(LANGS.map((l) => [l.code, JSON.parse(read(`i1
 const keys = (lang) => Object.keys(strings[lang]).sort().join("\n");
 if (keys("en") !== keys("de")) throw new Error("i18n/en.json and i18n/de.json have different keys");
 
+/** "<" escaped so that no text can close the script element. */
+const jsonScript = (data) => JSON.stringify(data).replace(/</g, "\\u003c");
+
 /** What search engines and AI assistants read about the software: schema.org data for the page's head. */
 function jsonLd(lang, t) {
-  const data = {
+  return jsonScript({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "wickwatch",
@@ -79,13 +89,30 @@ function jsonLd(lang, t) {
     releaseNotes: `${REPO}/blob/main/CHANGELOG.md`,
     softwareHelp: `${REPO}/blob/main/docs/USER-GUIDE.md`,
     offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-  };
-  // "<" escaped so that no text can close the script element.
-  return JSON.stringify(data).replace(/</g, "\\u003c");
+  });
 }
 
-/** Fills a template for one language; `out` is the page's path, e.g. "de/index.html". */
-function render(file, lang, out, extra = {}) {
+/** The same for a topic page: an article about the software. */
+function topicJsonLd(lang, t, topic) {
+  // The strings hold HTML entities and no tags here; structured data wants plain text.
+  const plain = (text) => text.replace(/&amp;/g, "&");
+  return jsonScript({
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: plain(t[`topic.${topic.key}.title`]),
+    description: plain(t[`topic.${topic.key}.metaDescription`]),
+    url: `${SITE_URL}/${lang.dir}${topic.slug}/`,
+    inLanguage: lang.code,
+    image: `${SITE_URL}/assets/img/social-preview.png`,
+    about: { "@type": "SoftwareApplication", name: "wickwatch", url: `${SITE_URL}/${lang.dir}`, applicationCategory: "FinanceApplication", operatingSystem: "Linux, Docker" },
+  });
+}
+
+/**
+ * Fills a template for one language; `out` is the page's path, e.g. "de/index.html", and `path` the page's folder
+ * below the language's start page ("" for the start page itself), the same in every language.
+ */
+function render(template, lang, out, path = "", extra = {}) {
   const t = strings[lang.code];
   const depth = out.split("/").length - 1;
   const root = depth ? "../".repeat(depth) : "./";
@@ -96,10 +123,12 @@ function render(file, lang, out, extra = {}) {
     root,
     // The start page of this language; section links in the header point into it.
     home: `${root}${lang.dir}`,
-    url: `${SITE_URL}/${lang.dir}`,
-    alternate: `${SITE_URL}/${other.dir}`,
+    url: `${SITE_URL}/${lang.dir}${path}`,
+    alternate: `${SITE_URL}/${other.dir}${path}`,
+    xDefault: `${SITE_URL}/${path}`,
     alternateLang: other.code,
-    otherRoot: `${root}${other.dir}`,
+    // The same page in the other language.
+    otherRoot: `${root}${other.dir}${path}`,
     otherFlag: other.flag,
     siteUrl: SITE_URL,
     repo: REPO,
@@ -120,7 +149,7 @@ function render(file, lang, out, extra = {}) {
         if (!(key in values)) throw new Error(`missing value ${key}`);
         return values[key];
       });
-  const html = fill(withPartials(read(file)));
+  const html = fill(withPartials(template));
   // Looked for outside the structured data: JSON may hold "}}" of its own.
   const left = html.replace(values.jsonLd, "").match(/\{\{[^}]*\}\}/);
   if (left) throw new Error(`unreplaced placeholder ${left[0]} (${out})`);
@@ -131,17 +160,27 @@ function render(file, lang, out, extra = {}) {
 // Legal notice and privacy policy: German only, as required for a site run from Germany.
 const LEGAL_DATE = "1. Oktober 2026";
 
-for (const lang of LANGS) render("src/page.html", lang, `${lang.dir}index.html`);
-render("src/legal.html", LANGS.find((l) => l.code === "de"), "impressum/index.html");
+for (const lang of LANGS) render(read("src/page.html"), lang, `${lang.dir}index.html`);
+render(read("src/legal.html"), LANGS.find((l) => l.code === "de"), "impressum/index.html");
+
+// Topic pages: src/topic.html around the topic's body; "topic.@." in it stands for the topic's strings.
+for (const topic of TOPICS) {
+  const template = read("src/topic.html").replace("{{topicBody}}", read(`src/topics/${topic.key}.html`).trimEnd()).replaceAll("topic.@.", `topic.${topic.key}.`);
+  for (const lang of LANGS) {
+    render(template, lang, `${lang.dir}${topic.slug}/index.html`, `${topic.slug}/`, { jsonLd: topicJsonLd(lang, strings[lang.code], topic) });
+  }
+}
 
 // For crawlers: which pages exist (the legal page is noindex and stays out), and that all of them may be read.
-const pageUrl = (lang) => `${SITE_URL}/${lang.dir}`;
-const sitemapLinks = LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${pageUrl(l)}"/>`).join("\n");
+const sitemapUrl = (path) => {
+  const links = LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${SITE_URL}/${l.dir}${path}"/>`).join("\n");
+  return LANGS.map((l) => `  <url>\n    <loc>${SITE_URL}/${l.dir}${path}</loc>\n${links}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/${path}"/>\n  </url>`).join("\n");
+};
 write(
   "sitemap.xml",
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${LANGS.map((l) => `  <url>\n    <loc>${pageUrl(l)}</loc>\n${sitemapLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/"/>\n  </url>`).join("\n")}
+${["", ...TOPICS.map((t) => `${t.slug}/`)].map(sitemapUrl).join("\n")}
 </urlset>
 `,
 );

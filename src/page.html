@@ -164,6 +164,21 @@
       </div>
     </section>
 
+    <section id="guides">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">{{t:guides.eyebrow}}</p>
+          <h2>{{t:guides.title}}</h2>
+          <p>{{t:guides.intro}}</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>{{icon:monitor}}<a href="{{home}}ctrader-docker/">{{t:guides.docker.title}}</a></h3><p>{{t:guides.docker.text}}</p></div>
+          <div class="card"><h3>{{icon:check}}<a href="{{home}}prop-firm-challenges/">{{t:guides.prop.title}}</a></h3><p>{{t:guides.prop.text}}</p></div>
+          <div class="card"><h3>{{icon:terminal}}<a href="{{home}}mcp/">{{t:guides.mcp.title}}</a></h3><p>{{t:guides.mcp.text}}</p></div>
+        </div>
+      </div>
+    </section>
+
     <section id="support" class="support">
       <div class="wrap">
         <div class="head">
@@ -180,20 +195,6 @@
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <p>{{t:footer.disclaimer}}</p>
-      <nav aria-label="{{t:footer.label}}">
-        <a href="{{repo}}">GitHub</a>
-        <a href="{{repo}}/blob/main/CHANGELOG.md">{{t:footer.changelog}}</a>
-        <a href="{{repo}}/blob/main/docs/USER-GUIDE.md">{{t:footer.guide}}</a>
-        <a href="{{repo}}/blob/main/SECURITY.md">{{t:footer.security}}</a>
-        <a href="{{repo}}/blob/main/LICENSE">{{t:footer.license}}</a>
-        <a href="https://ko-fi.com/mmohrx">Ko-fi</a>
-        <a href="{{root}}impressum/" hreflang="de">{{t:footer.legal}}</a>
-      </nav>
-      <p>{{t:footer.note}}</p>
-    </div>
-  </footer>
+{{partial:footer}}
 </body>
 </html>

@@ -1,0 +1,38 @@
+      <h2>{{t:topic.docker.s1.title}}</h2>
+      <ul>
+        <li>{{t:topic.docker.s1.1}}</li>
+        <li>{{t:topic.docker.s1.2}}</li>
+        <li>{{t:topic.docker.s1.3}}</li>
+        <li>{{t:topic.docker.s1.4}}</li>
+        <li>{{t:topic.docker.s1.5}}</li>
+        <li>{{t:topic.docker.s1.6}}</li>
+      </ul>
+      <h2>{{t:topic.docker.s2.title}}</h2>
+      <p>{{t:topic.docker.s2.text}}</p>
+      <ul>
+        <li>{{t:topic.docker.s2.1}}</li>
+        <li>{{t:topic.docker.s2.2}}</li>
+      </ul>
+      <h2>{{t:topic.docker.s3.title}}</h2>
+      <ul>
+        <li>{{t:topic.docker.s3.1}}</li>
+        <li>{{t:topic.docker.s3.2}}</li>
+        <li>{{t:topic.docker.s3.3}}</li>
+        <li>{{t:topic.docker.s3.4}}</li>
+      </ul>
+      <h2>{{t:topic.docker.s4.title}}</h2>
+      <p>{{t:topic.docker.s4.text}}</p>
+      <div class="code">
+        <pre><code id="quick-start-command">docker run --rm -p 3000:3000 \
+  -e MASTER_KEY="$(openssl rand -base64 32)" \
+  -v wickwatch-data:/app/data \
+  ghcr.io/wickwatch/wickwatch:{{version}}</code></pre>
+        <button class="chip copy" type="button" data-copy="quick-start-command" data-label-done="{{t:start.copied}}" aria-label="{{t:start.copy}}" data-tip="{{t:start.copy}}">{{icon:duplicate}}</button>
+        <span class="copied" role="status" data-copy-status></span>
+      </div>
+      <p>{{t:topic.docker.s4.next}}</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="{{home}}#quick-start">{{icon:play}}{{t:hero.start}}</a>
+        <a class="btn btn-ghost" href="{{repo}}/blob/main/deploy/INSTALL.md">{{t:topic.docker.cta}}{{icon:external}}</a>
+      </div>
+      <p class="note">{{t:topic.docker.note}}</p>
