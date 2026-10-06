@@ -6,6 +6,7 @@ The project page of [wickwatch](https://github.com/wickwatch/wickwatch): one sta
 - Texts: `i18n/en.json` and `i18n/de.json` (same keys in both; English is the source).
 - Markup: `src/page.html`, the header shared with the legal page in `src/header.html` (pulled in with `{{partial:header}}`). Styles: `assets/css/site.css`, built on `assets/css/tokens.css` (a copy of `design/tokens.css` from the main repo; copy it again when the tokens change).
 - Build with `node build.mjs` (Node 20+, no dependencies) and commit the generated `index.html` and `de/index.html`. The build fails on a missing string or a placeholder left in the page.
+- For search engines and AI assistants the build also writes `sitemap.xml`, `robots.txt`, the schema.org data in each page's head and `llms.txt` (from `src/llms.md`: update it when features or docs change). Commit them too.
 
 ## Legal notice and privacy
 `src/legal.html` builds `impressum/index.html` (German only, linked from both footers). Raise `LEGAL_DATE` in `build.mjs` when the text changes, and update the privacy part when the site starts using anything new (hosting, embeds, analytics).

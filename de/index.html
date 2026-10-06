@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>wickwatch – selbst gehostetes Dashboard für Trading-Bots</title>
-  <meta name="description" content="Trading-Bots überwachen und steuern: Instanzen, Positionen, Deals und die Limits von Prop-Firm-Challenges in einem selbst gehosteten Dashboard. Open Source unter AGPL-3.0.">
+  <title>wickwatch – selbst gehostetes Dashboard für cTrader-Trading-Bots</title>
+  <meta name="description" content="cTrader-Bots (cBots) in Docker überwachen und steuern: Instanzen, Positionen, Deals und die Limits von Prop-Firm-Challenges in einem selbst gehosteten Dashboard. Open Source unter AGPL-3.0.">
   <link rel="canonical" href="https://wickwatch.github.io/de/">
   <link rel="alternate" hreflang="de" href="https://wickwatch.github.io/de/">
   <link rel="alternate" hreflang="en" href="https://wickwatch.github.io/">
@@ -16,12 +16,13 @@
   <meta property="og:site_name" content="wickwatch">
   <meta property="og:locale" content="de_DE">
   <meta property="og:url" content="https://wickwatch.github.io/de/">
-  <meta property="og:title" content="wickwatch – selbst gehostetes Dashboard für Trading-Bots">
-  <meta property="og:description" content="Trading-Bots überwachen und steuern: Instanzen, Positionen, Deals und die Limits von Prop-Firm-Challenges in einem selbst gehosteten Dashboard. Open Source unter AGPL-3.0.">
+  <meta property="og:title" content="wickwatch – selbst gehostetes Dashboard für cTrader-Trading-Bots">
+  <meta property="og:description" content="cTrader-Bots (cBots) in Docker überwachen und steuern: Instanzen, Positionen, Deals und die Limits von Prop-Firm-Challenges in einem selbst gehosteten Dashboard. Open Source unter AGPL-3.0.">
   <meta property="og:image" content="https://wickwatch.github.io/assets/img/social-preview.png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"wickwatch","description":"cTrader-Bots (cBots) in Docker überwachen und steuern: Instanzen, Positionen, Deals und die Limits von Prop-Firm-Challenges in einem selbst gehosteten Dashboard. Open Source unter AGPL-3.0.","url":"https://wickwatch.github.io/de/","image":"https://wickwatch.github.io/assets/img/social-preview.png","screenshot":"https://wickwatch.github.io/assets/shots/overview-dark-de.webp","applicationCategory":"FinanceApplication","operatingSystem":"Linux, Docker","softwareVersion":"0.6.0","license":"https://www.gnu.org/licenses/agpl-3.0.html","isAccessibleForFree":true,"inLanguage":["en","de"],"codeRepository":"https://github.com/wickwatch/wickwatch","downloadUrl":"https://github.com/wickwatch/wickwatch/releases/tag/v0.6.0","releaseNotes":"https://github.com/wickwatch/wickwatch/blob/main/CHANGELOG.md","softwareHelp":"https://github.com/wickwatch/wickwatch/blob/main/docs/USER-GUIDE.md","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
@@ -64,7 +65,7 @@
     <div class="hero">
       <div class="wrap">
         <h1>Behalte deine <em>Trading-Bots</em> im Blick</h1>
-        <p class="lead">wickwatch ist ein selbst gehostetes Dashboard für Trading-Bots: Sieh, was wo mit welchen Parametern läuft, starte und stoppe Instanzen, verfolge Positionen und Deals live und behalte die Limits deiner Prop-Firm-Challenge im Blick.</p>
+        <p class="lead">wickwatch ist ein selbst gehostetes Dashboard für Trading-Bots, zunächst für cTrader-cBots in Docker: Sieh, was wo mit welchen Parametern läuft, starte und stoppe Instanzen, verfolge Positionen und Deals live und behalte die Limits deiner Prop-Firm-Challenge im Blick.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#quick-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5v15l11.5-7.5z"/></svg>Schnellstart</a>
           <a class="btn btn-ghost" href="https://github.com/wickwatch/wickwatch">Quellcode auf GitHub<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 4.5h6v6"/><path d="M19.5 4.5l-8 8"/><path d="M17 13.5v5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h5"/></svg></a>
@@ -83,7 +84,7 @@
       <div class="wrap">
         <div class="head">
           <p class="eyebrow">Funktionen</p>
-          <h2>Deine Bots auf einem Bildschirm</h2>
+          <h2>Deine Trading-Bots auf einem Bildschirm</h2>
           <p>wickwatch überwacht und steuert, deine Strategien bleiben deine. Es handelt nicht selbst und verspricht keine Gewinne.</p>
         </div>
         <div class="grid">
@@ -117,7 +118,7 @@
         <div class="feature flip">
           <div class="text">
             <p class="eyebrow">Prop-Challenges</p>
-            <h2>Challenge-Limits im Blick</h2>
+            <h2>Limits der Prop-Firm-Challenge im Blick</h2>
             <p>Die Kontoseite zeigt, wie weit das Profit-Ziel entfernt ist und wie viel vom Tages- und Gesamtverlust schon verbraucht ist. Werte, die nicht genau gemessen werden konnten, sind als Schätzung markiert.</p>
             <ul>
               <li>Tagesverlust mit Reset-Zeit und Zeitzone, auf Balance oder Equity</li>
@@ -163,7 +164,7 @@
       <div class="wrap">
         <div class="head">
           <p class="eyebrow">Schnellstart</p>
-          <h2>In einer Minute ausprobieren</h2>
+          <h2>In einer Minute mit Docker ausprobieren</h2>
           <p>Das Image startet mit dem Demo-Adapter: Beispielkonten, -instanzen, -positionen und -logs. So kannst du dich ohne Broker und ohne Bots umsehen.</p>
         </div>
         <div class="code">

@@ -1,6 +1,6 @@
 {
-  "meta.title": "wickwatch – selbst gehostetes Dashboard für Trading-Bots",
-  "meta.description": "Trading-Bots überwachen und steuern: Instanzen, Positionen, Deals und die Limits von Prop-Firm-Challenges in einem selbst gehosteten Dashboard. Open Source unter AGPL-3.0.",
+  "meta.title": "wickwatch – selbst gehostetes Dashboard für cTrader-Trading-Bots",
+  "meta.description": "cTrader-Bots (cBots) in Docker überwachen und steuern: Instanzen, Positionen, Deals und die Limits von Prop-Firm-Challenges in einem selbst gehosteten Dashboard. Open Source unter AGPL-3.0.",
 
   "nav.skip": "Zum Inhalt springen",
   "nav.home": "wickwatch Startseite",
@@ -14,7 +14,7 @@
   "theme.toLight": "Zum hellen Modus wechseln",
 
   "hero.title": "Behalte deine <em>Trading-Bots</em> im Blick",
-  "hero.lead": "wickwatch ist ein selbst gehostetes Dashboard für Trading-Bots: Sieh, was wo mit welchen Parametern läuft, starte und stoppe Instanzen, verfolge Positionen und Deals live und behalte die Limits deiner Prop-Firm-Challenge im Blick.",
+  "hero.lead": "wickwatch ist ein selbst gehostetes Dashboard für Trading-Bots, zunächst für cTrader-cBots in Docker: Sieh, was wo mit welchen Parametern läuft, starte und stoppe Instanzen, verfolge Positionen und Deals live und behalte die Limits deiner Prop-Firm-Challenge im Blick.",
   "hero.start": "Schnellstart",
   "hero.source": "Quellcode auf GitHub",
   "hero.tagsLabel": "Auf einen Blick",
@@ -25,7 +25,7 @@
   "hero.alt": "wickwatch-Übersicht: drei Konten mit Balance, Equity und Tages-P&L, eine Meldung zu einem Bot, dessen Login fehlgeschlagen ist, und die Tabelle der Bot-Instanzen mit Status, Laufzeit und letzter Log-Zeile.",
 
   "features.eyebrow": "Funktionen",
-  "features.title": "Deine Bots auf einem Bildschirm",
+  "features.title": "Deine Trading-Bots auf einem Bildschirm",
   "features.intro": "wickwatch überwacht und steuert, deine Strategien bleiben deine. Es handelt nicht selbst und verspricht keine Gewinne.",
   "features.overview.title": "Übersicht",
   "features.overview.text": "Konten mit Balance, Equity, Tages-P&L, offenen Positionen und Pending Orders. Alle Instanzen mit Status, Laufzeit und letzter Log-Zeile. Meldungen bei gestoppten, abgestürzten oder getrennten Bots, Broker-Fehlern und Challenge-Limits.",
@@ -51,7 +51,7 @@
   "showcase.instance.item4": "Ein Reiter Konfiguration mit den Parametern und jeder gespeicherten Version zum Wiederherstellen",
   "showcase.instance.alt": "Instanzseite des Bots alpha-ger40-a: Kennzahlen für 30 Tage wie 39 Trades, 64 % Trefferquote und ein Netto-Ergebnis von +2.576,25, die realisierte P&L-Kurve und das Live-Log.",
   "showcase.account.eyebrow": "Prop-Challenges",
-  "showcase.account.title": "Challenge-Limits im Blick",
+  "showcase.account.title": "Limits der Prop-Firm-Challenge im Blick",
   "showcase.account.text": "Die Kontoseite zeigt, wie weit das Profit-Ziel entfernt ist und wie viel vom Tages- und Gesamtverlust schon verbraucht ist. Werte, die nicht genau gemessen werden konnten, sind als Schätzung markiert.",
   "showcase.account.item1": "Tagesverlust mit Reset-Zeit und Zeitzone, auf Balance oder Equity",
   "showcase.account.item2": "Max-Drawdown: statisch, nachgezogen oder nachgezogen auf die Balance zum Tagesschluss",
@@ -77,7 +77,7 @@
   "how.note": "Ein anderer Broker oder eine andere Plattform? Die Adapter-Verträge stehen in <a href=\"{{repo}}/blob/main/docs/ADAPTERS.md\">docs/ADAPTERS.md</a> (Englisch).",
 
   "start.eyebrow": "Schnellstart",
-  "start.title": "In einer Minute ausprobieren",
+  "start.title": "In einer Minute mit Docker ausprobieren",
   "start.intro": "Das Image startet mit dem Demo-Adapter: Beispielkonten, -instanzen, -positionen und -logs. So kannst du dich ohne Broker und ohne Bots umsehen.",
   "start.copy": "Befehl kopieren",
   "start.copied": "Kopiert",

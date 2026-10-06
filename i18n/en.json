@@ -1,6 +1,6 @@
 {
-  "meta.title": "wickwatch – self-hosted dashboard for trading bots",
-  "meta.description": "Monitor and control your trading bots: instances, positions, deals and prop-firm challenge limits in one self-hosted dashboard. Open source under AGPL-3.0.",
+  "meta.title": "wickwatch – self-hosted dashboard for cTrader trading bots",
+  "meta.description": "Monitor and control your cTrader bots (cBots) in Docker: instances, positions, deals and prop-firm challenge limits in one self-hosted dashboard. Open source under AGPL-3.0.",
 
   "nav.skip": "Skip to content",
   "nav.home": "wickwatch home",
@@ -14,7 +14,7 @@
   "theme.toLight": "Switch to light mode",
 
   "hero.title": "Keep watch over your <em>trading bots</em>",
-  "hero.lead": "wickwatch is a self-hosted dashboard for trading bots: see what runs where and with which parameters, start and stop instances, follow positions and deals live, and keep prop-firm challenge limits in view.",
+  "hero.lead": "wickwatch is a self-hosted dashboard for trading bots, starting with cTrader cBots in Docker: see what runs where and with which parameters, start and stop instances, follow positions and deals live, and keep prop-firm challenge limits in view.",
   "hero.start": "Quick start",
   "hero.source": "Source on GitHub",
   "hero.tagsLabel": "At a glance",
@@ -25,7 +25,7 @@
   "hero.alt": "wickwatch overview: three accounts with balance, equity and today's P&L, an alert for a bot that failed to log in, and the table of bot instances with status, uptime and last log line.",
 
   "features.eyebrow": "Features",
-  "features.title": "Your bots on one screen",
+  "features.title": "Your trading bots on one screen",
   "features.intro": "wickwatch watches and controls; your strategies stay your own. It does not trade by itself, and it makes no promises about profits.",
   "features.overview.title": "Overview",
   "features.overview.text": "Accounts with balance, equity, today's P&L, open positions and pending orders. All instances with status, uptime and their last log line. Alerts for stopped, crashed or disconnected bots, broker errors and challenge limits.",
@@ -51,7 +51,7 @@
   "showcase.instance.item4": "A configuration tab with the parameters and every saved version, ready to restore",
   "showcase.instance.alt": "Instance page of the bot alpha-ger40-a: key figures for 30 days such as 39 trades, 64 % win rate and a net result of +2,576.25, the realised P&L curve and the live log.",
   "showcase.account.eyebrow": "Prop challenges",
-  "showcase.account.title": "Challenge limits in view",
+  "showcase.account.title": "Prop-firm challenge limits in view",
   "showcase.account.text": "The account page shows how far the profit target is and how much of the daily and total loss is used. Values that could not be measured exactly are marked as estimates.",
   "showcase.account.item1": "Daily loss with reset time and time zone, on balance or equity",
   "showcase.account.item2": "Max drawdown: static, trailing, or trailing on the end-of-day balance",
@@ -77,7 +77,7 @@
   "how.note": "Another broker or platform? The adapter contracts are described in <a href=\"{{repo}}/blob/main/docs/ADAPTERS.md\">docs/ADAPTERS.md</a>.",
 
   "start.eyebrow": "Quick start",
-  "start.title": "Try it in a minute",
+  "start.title": "Try it with Docker in a minute",
   "start.intro": "The image starts with the demo adapter: fake accounts, instances, positions and logs, so you can look around without a broker or bots.",
   "start.copy": "Copy command",
   "start.copied": "Copied",

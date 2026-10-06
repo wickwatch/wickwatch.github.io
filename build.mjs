@@ -46,6 +46,10 @@ const shot = (name, lang, alt, root, eager) => {
 };
 
 const read = (file) => readFileSync(new URL(file, import.meta.url), "utf8");
+const write = (file, text) => {
+  writeFileSync(new URL(file, import.meta.url), text);
+  console.log(file);
+};
 /** `{{partial:name}}` pulls in src/<name>.html, e.g. the header shared by all pages. */
 const withPartials = (text) => text.replace(/\{\{partial:([a-z]+)\}\}/g, (_, name) => read(`src/${name}.html`));
 const strings = Object.fromEntries(LANGS.map((l) => [l.code, JSON.parse(read(`i18n/${l.code}.json`))]));
@@ -53,6 +57,32 @@ const strings = Object.fromEntries(LANGS.map((l) => [l.code, JSON.parse(read(`i1
 // Both languages must have the same keys.
 const keys = (lang) => Object.keys(strings[lang]).sort().join("\n");
 if (keys("en") !== keys("de")) throw new Error("i18n/en.json and i18n/de.json have different keys");
+
+/** What search engines and AI assistants read about the software: schema.org data for the page's head. */
+function jsonLd(lang, t) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "wickwatch",
+    description: t["meta.description"],
+    url: `${SITE_URL}/${lang.dir}`,
+    image: `${SITE_URL}/assets/img/social-preview.png`,
+    screenshot: `${SITE_URL}/assets/shots/overview-dark-${lang.code}.webp`,
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Linux, Docker",
+    softwareVersion: VERSION,
+    license: "https://www.gnu.org/licenses/agpl-3.0.html",
+    isAccessibleForFree: true,
+    inLanguage: LANGS.map((l) => l.code),
+    codeRepository: REPO,
+    downloadUrl: `${REPO}/releases/tag/v${VERSION}`,
+    releaseNotes: `${REPO}/blob/main/CHANGELOG.md`,
+    softwareHelp: `${REPO}/blob/main/docs/USER-GUIDE.md`,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  };
+  // "<" escaped so that no text can close the script element.
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
 
 /** Fills a template for one language; `out` is the page's path, e.g. "de/index.html". */
 function render(file, lang, out, extra = {}) {
@@ -75,6 +105,7 @@ function render(file, lang, out, extra = {}) {
     repo: REPO,
     version: VERSION,
     legalDate: LEGAL_DATE,
+    jsonLd: jsonLd(lang, t),
     ...extra,
   };
   const fill = (text) =>
@@ -90,11 +121,11 @@ function render(file, lang, out, extra = {}) {
         return values[key];
       });
   const html = fill(withPartials(read(file)));
-  const left = html.match(/\{\{[^}]*\}\}/);
+  // Looked for outside the structured data: JSON may hold "}}" of its own.
+  const left = html.replace(values.jsonLd, "").match(/\{\{[^}]*\}\}/);
   if (left) throw new Error(`unreplaced placeholder ${left[0]} (${out})`);
   if (depth) mkdirSync(new URL(out.slice(0, out.lastIndexOf("/") + 1), import.meta.url), { recursive: true });
-  writeFileSync(new URL(out, import.meta.url), html);
-  console.log(out);
+  write(out, html);
 }
 
 // Legal notice and privacy policy: German only, as required for a site run from Germany.
@@ -102,3 +133,19 @@ const LEGAL_DATE = "1. Oktober 2026";
 
 for (const lang of LANGS) render("src/page.html", lang, `${lang.dir}index.html`);
 render("src/legal.html", LANGS.find((l) => l.code === "de"), "impressum/index.html");
+
+// For crawlers: which pages exist (the legal page is noindex and stays out), and that all of them may be read.
+const pageUrl = (lang) => `${SITE_URL}/${lang.dir}`;
+const sitemapLinks = LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${pageUrl(l)}"/>`).join("\n");
+write(
+  "sitemap.xml",
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${LANGS.map((l) => `  <url>\n    <loc>${pageUrl(l)}</loc>\n${sitemapLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/"/>\n  </url>`).join("\n")}
+</urlset>
+`,
+);
+write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+
+// For AI assistants (llmstxt.org): what wickwatch is and where the details are, as plain Markdown.
+write("llms.txt", read("src/llms.md").replaceAll("{{repo}}", REPO).replaceAll("{{siteUrl}}", SITE_URL).replaceAll("{{version}}", VERSION));
