@@ -1,6 +1,6 @@
 # wickwatch
 
-> wickwatch is a self-hosted, open-source (AGPL-3.0) dashboard to monitor and control trading bots. Its first adapters run cTrader bots (cBots) in Docker containers through the cTrader CLI. It shows accounts, bot instances, positions, deals and logs, starts and stops bots, and tracks prop-firm challenge limits (for example FTMO and The Trading Pit). It is a hobby project, free of charge, with no commercial variant. Current version: 0.7.0.
+> wickwatch is a self-hosted, open-source (AGPL-3.0) dashboard to monitor and control trading bots. Its first adapters run cTrader bots (cBots) in Docker containers through the cTrader CLI. It shows accounts, bot instances, positions, deals and logs, starts and stops bots, and tracks prop-firm challenge limits (for example FTMO and The Trading Pit). It is a hobby project, free of charge, with no commercial variant. Current version: 0.7.1.
 
 wickwatch watches and controls bots; it does not trade by itself, contains no strategies and is not financial advice. It is not affiliated with Spotware (cTrader) and includes no cTrader software. The name is always written in lower case.
 
@@ -19,7 +19,7 @@ wickwatch watches and controls bots; it does not trade by itself, contains no st
 ## Quick start
 
 ```sh
-docker run --rm -p 3000:3000 -e MASTER_KEY="$(openssl rand -base64 32)" -v wickwatch-data:/app/data ghcr.io/wickwatch/wickwatch:0.7.0
+docker run --rm -p 3000:3000 -e MASTER_KEY="$(openssl rand -base64 32)" -v wickwatch-data:/app/data ghcr.io/wickwatch/wickwatch:0.7.1
 ```
 
 The image starts with a demo adapter (fake accounts, instances, positions and logs), so no broker or bots are needed to try it.
