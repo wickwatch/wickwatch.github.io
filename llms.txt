@@ -26,9 +26,9 @@ The image starts with a demo adapter (fake accounts, instances, positions and lo
 
 ## Guides
 
-- [Run cTrader cBots in Docker, with a dashboard](https://wickwatch.github.io/ctrader-docker/): what wickwatch does with the bots, the two ways to define them, what is needed
-- [Prop-firm challenge limits](https://wickwatch.github.io/prop-firm-challenges/): challenge profiles, alerts, the loss guard and its limits
-- [AI assistants through MCP](https://wickwatch.github.io/mcp/): what the read-only MCP endpoint offers and how to connect a client
+- [Run cTrader cBots in Docker, with a dashboard](https://wickwatch.dev/ctrader-docker/): what wickwatch does with the bots, the two ways to define them, what is needed
+- [Prop-firm challenge limits](https://wickwatch.dev/prop-firm-challenges/): challenge profiles, alerts, the loss guard and its limits
+- [AI assistants through MCP](https://wickwatch.dev/mcp/): what the read-only MCP endpoint offers and how to connect a client
 
 ## Docs
 
@@ -48,4 +48,4 @@ The image starts with a demo adapter (fake accounts, instances, positions and lo
 
 - [Roadmap](https://github.com/wickwatch/wickwatch/blob/main/docs/ROADMAP.md)
 - [Changelog](https://github.com/wickwatch/wickwatch/blob/main/CHANGELOG.md)
-- [Project page](https://wickwatch.github.io/) ([German](https://wickwatch.github.io/de/))
+- [Project page](https://wickwatch.dev/) ([German](https://wickwatch.dev/de/))

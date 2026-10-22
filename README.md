@@ -19,7 +19,7 @@ Raise `VERSION` in `build.mjs` (the quick start pins it) and rebuild.
 `assets/shots/<view>-<dark|light>-<en|de>.webp`, taken from the demo adapter at 1440 × 900 (phone 390 × 844), device scale 2, saved as WebP (quality 80, desktop resized to 2000 px). Retake them when the dashboard changes visibly.
 
 ## Domain
-Served at https://wickwatch.github.io until wickwatch.dev points here. Then: set `SITE_URL` in `build.mjs` to `https://wickwatch.dev`, rebuild, add a `CNAME` file containing `wickwatch.dev`, and set the custom domain with "Enforce HTTPS" under Settings → Pages.
+Served at https://wickwatch.dev (`CNAME`, custom domain with "Enforce HTTPS" under Settings → Pages). DNS at netcup: apex A/AAAA to the GitHub Pages addresses, `www` as CNAME to `wickwatch.github.io`. `SITE_URL` in `build.mjs` sets the absolute URLs (canonical, sitemap, robots.txt, llms.txt).
 
 ## Licence
 Site code and texts: [AGPL-3.0](LICENSE), like wickwatch. Fonts: SIL Open Font License, see `assets/fonts/`.

@@ -3,7 +3,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 /** Where the site is served; becomes https://wickwatch.dev once the domain points here (then add a CNAME file). */
-const SITE_URL = "https://wickwatch.github.io";
+const SITE_URL = "https://wickwatch.dev";
 /** The version the quick start pins. Raise it with each wickwatch release. */
 const VERSION = "0.8.0";
 const REPO = "https://github.com/wickwatch/wickwatch";
