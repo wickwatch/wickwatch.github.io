@@ -1,5 +1,6 @@
 // Builds index.html (English) and de/index.html (German) from src/page.html and the strings in i18n/.
 // No dependencies: `node build.mjs`. Commit the generated pages; GitHub Pages serves them as they are.
+import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 /** Where the site is served; becomes https://wickwatch.dev once the domain points here (then add a CNAME file). */
@@ -154,7 +155,35 @@ function render(template, lang, out, path = "", extra = {}) {
   const left = html.replace(values.jsonLd, "").match(/\{\{[^}]*\}\}/);
   if (left) throw new Error(`unreplaced placeholder ${left[0]} (${out})`);
   if (depth) mkdirSync(new URL(out.slice(0, out.lastIndexOf("/") + 1), import.meta.url), { recursive: true });
-  write(out, html);
+  write(out, withSecurityMeta(html, out));
+}
+
+/**
+ * GitHub Pages sets no headers of our own, so the Content-Security-Policy and the referrer policy go into meta tags.
+ * The inline theme script is allowed by its hash, taken from the page itself, so the policy follows any change to it.
+ * (frame-ancestors would be ignored in a meta tag, so it is left out.)
+ */
+function withSecurityMeta(html, out) {
+  const hashes = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(
+    ([, code]) => `'sha256-${createHash("sha256").update(code).digest("base64")}'`,
+  );
+  const csp = [
+    "default-src 'self'",
+    `script-src 'self' ${hashes.join(" ")}`.trim(),
+    "style-src 'self'",
+    "img-src 'self'",
+    "font-src 'self'",
+    "connect-src 'self'",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+  ].join("; ");
+  const charset = '<meta charset="utf-8">';
+  if (!html.includes(charset)) throw new Error(`no ${charset} to put the security meta tags after (${out})`);
+  return html.replace(
+    charset,
+    `${charset}\n  <meta http-equiv="Content-Security-Policy" content="${csp}">\n  <meta name="referrer" content="strict-origin-when-cross-origin">`,
+  );
 }
 
 // Legal notice and privacy policy: German only, as required for a site run from Germany.
