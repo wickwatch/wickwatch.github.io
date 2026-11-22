@@ -100,6 +100,8 @@
   "footer.security": "Sicherheit",
   "footer.legal": "Impressum & Datenschutz",
   "footer.license": "Lizenz (AGPL-3.0)",
+  "footer.author": "Von Martin Mohr",
+  "footer.authorUrl": "https://mohrwurm.de/projekte/wickwatch/",
   "footer.note": "Diese Seite setzt keine Cookies und verwendet kein Tracking. Die Schriften werden von dieser Seite selbst geladen.",
 
   "guides.eyebrow": "Im Detail",

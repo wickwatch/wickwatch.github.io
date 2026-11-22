@@ -69,6 +69,9 @@ if (keys("en") !== keys("de")) throw new Error("i18n/en.json and i18n/de.json ha
 /** "<" escaped so that no text can close the script element. */
 const jsonScript = (data) => JSON.stringify(data).replace(/</g, "\\u003c");
 
+/** Who wrote wickwatch, with the project page on his site in the page's language. */
+const author = (t) => ({ "@type": "Person", name: "Martin Mohr", url: t["footer.authorUrl"] });
+
 /** What search engines and AI assistants read about the software: schema.org data for the page's head. */
 function jsonLd(lang, t) {
   return jsonScript({
@@ -90,6 +93,7 @@ function jsonLd(lang, t) {
     releaseNotes: `${REPO}/blob/main/CHANGELOG.md`,
     softwareHelp: `${REPO}/blob/main/docs/USER-GUIDE.md`,
     offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+    author: author(t),
   });
 }
 
@@ -105,6 +109,7 @@ function topicJsonLd(lang, t, topic) {
     url: `${SITE_URL}/${lang.dir}${topic.slug}/`,
     inLanguage: lang.code,
     image: `${SITE_URL}/assets/img/social-preview.png`,
+    author: author(t),
     about: { "@type": "SoftwareApplication", name: "wickwatch", url: `${SITE_URL}/${lang.dir}`, applicationCategory: "FinanceApplication", operatingSystem: "Linux, Docker" },
   });
 }
